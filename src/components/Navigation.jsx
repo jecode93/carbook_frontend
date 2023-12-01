@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { IoIosMenu } from 'react-icons/io';
 import { AiOutlineClose } from 'react-icons/ai';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -12,12 +12,12 @@ const Navigation = () => {
 
   return (
     <>
-      <div className={!isOpen ? 'wrapper fixed lg:bg-white h-screen duration-300' : 'w-2/12'}>
+      <div className={!isOpen ? '' : 'h-screen md:w-3/12 bg-white duration-300'}>
         <div // eslint-disable-line jsx-a11y/no-static-element-interactions
           className={
             isOpen
               ? 'hidden'
-              : 'block p-1 text-2xl font-bold md:bg-none lg:hidden cursor-pointer'
+              : 'flex absolute left-2 top-2 p-1 text-2xl font-bold md:bg-none lg:hidden md:hidden cursor-pointer'
           }
           onKeyDown={toggleMenu}
           onClick={toggleMenu}
@@ -27,7 +27,7 @@ const Navigation = () => {
         <div // eslint-disable-line jsx-a11y/no-static-element-interactions
           className={
             isOpen
-              ? 'block p-1 text-2xl font-bold lg:hidden cursor-pointer duration-300'
+              ? 'flex absolute left-2 top-2 p-1 text-2xl font-bold lg:hidden md:hidden cursor-pointer duration-300'
               : 'hidden'
           }
           onKeyDown={toggleMenu}
@@ -35,38 +35,38 @@ const Navigation = () => {
         >
           <AiOutlineClose />
         </div>
-        <nav className={!isOpen ? 'hidden lg:block duration-300' : ' pt-10 pl-5 w-screen flex flex-col'}>
-          <div>
-            <NavLink to="/home">
+        <nav className={!isOpen ? 'hidden duration-300' : 'pt-10 pl-5 flex flex-col'}>
+          <div className="pt-5">
+            <Link to="/">
               <h1 className="font-logo font-bold text-2xl">Motor Book</h1>
-            </NavLink>
+            </Link>
           </div>
           <ul className="pt-40 font-bold">
             <li className="mb-4 p-2 bg-green-600 text-white">
-              <NavLink to="/home" activeClassName="active">
+              <Link to="/" onClick={toggleMenu}>
                 Motorcycles
-              </NavLink>
+              </Link>
             </li>
             <li className="mb-4 p-2">
-              <NavLink to="/new-motor" activeClassName="active">
+              <Link to="/new-motor" onClick={toggleMenu}>
                 Add motorcycle
-              </NavLink>
+              </Link>
             </li>
             <li className="mb-4 p-2">
-              <NavLink to="/reservations" activeClassName="active">
+              <Link to="/reservations" onClick={toggleMenu}>
                 My Reservations
-              </NavLink>
+              </Link>
             </li>
             <li className="mb-4 p-2">
-              <NavLink to="/delete-motor" activeClassName="active">
+              <Link to="/delete-motor" onClick={toggleMenu}>
                 Delete motorcycle
-              </NavLink>
+              </Link>
             </li>
           </ul>
           <div className="absolute bottom-10">
-            <NavLink>
+            <Link to="signup" onClick={toggleMenu}>
               Sign out
-            </NavLink>
+            </Link>
           </div>
         </nav>
       </div>
