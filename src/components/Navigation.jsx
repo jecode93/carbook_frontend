@@ -44,22 +44,22 @@ const Navigation = () => {
           <ul className="pt-40 font-bold">
             <li className="mb-4 p-2 bg-green-600 text-white">
               <NavLink to="/home" activeClassName="active">
-                Motors
+                Motorcycles
               </NavLink>
             </li>
             <li className="mb-4 p-2">
               <NavLink to="/new-motor" activeClassName="active">
-                Add motor
+                Add motorcycle
               </NavLink>
             </li>
             <li className="mb-4 p-2">
               <NavLink to="/reservations" activeClassName="active">
-                Reservations
+                My Reservations
               </NavLink>
             </li>
             <li className="mb-4 p-2">
               <NavLink to="/delete-motor" activeClassName="active">
-                Delete motor
+                Delete motorcycle
               </NavLink>
             </li>
           </ul>
