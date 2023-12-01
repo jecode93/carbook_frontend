@@ -12,12 +12,12 @@ const Navigation = () => {
 
   return (
     <>
-      <div className={!isOpen ? 'wrapper fixed md:bg-white h-screen duration-300' : 'w-2/12'}>
+      <div className={!isOpen ? 'wrapper fixed lg:bg-white h-screen duration-300' : 'w-2/12'}>
         <div // eslint-disable-line jsx-a11y/no-static-element-interactions
           className={
             isOpen
               ? 'hidden'
-              : 'block p-1 text-2xl font-bold md:hidden cursor-pointer'
+              : 'block p-1 text-2xl font-bold md:bg-none lg:hidden cursor-pointer'
           }
           onKeyDown={toggleMenu}
           onClick={toggleMenu}
@@ -27,7 +27,7 @@ const Navigation = () => {
         <div // eslint-disable-line jsx-a11y/no-static-element-interactions
           className={
             isOpen
-              ? 'block p-1 text-2xl font-bold md:hidden cursor-pointer duration-300'
+              ? 'block p-1 text-2xl font-bold lg:hidden cursor-pointer duration-300'
               : 'hidden'
           }
           onKeyDown={toggleMenu}
@@ -35,7 +35,7 @@ const Navigation = () => {
         >
           <AiOutlineClose />
         </div>
-        <nav className={!isOpen ? 'hidden md:block duration-300' : ' pt-10 pl-5 w-screen flex flex-col'}>
+        <nav className={!isOpen ? 'hidden lg:block duration-300' : ' pt-10 pl-5 w-screen flex flex-col'}>
           <div>
             <NavLink to="/home">
               <h1 className="font-logo font-bold text-2xl">Motor Book</h1>
@@ -63,7 +63,7 @@ const Navigation = () => {
               </NavLink>
             </li>
           </ul>
-          <div className="absolute bottom-5">
+          <div className="absolute bottom-10">
             <NavLink>
               Sign out
             </NavLink>
