@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const AddMotorcycle = () => {
-  return (
-    <div>AddMotorcycle</div>
-  )
-}
+const AddMotorcycle = () => (
+  <div>AddMotorcycle</div>
+);
 
-export default AddMotorcycle
+export default AddMotorcycle;
