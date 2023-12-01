@@ -8,7 +8,6 @@ const Navigation = () => {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-    console.log(isOpen);
   };
 
   return (
@@ -39,27 +38,27 @@ const Navigation = () => {
         <nav className={!isOpen ? 'hidden md:block duration-300' : ' pt-10 pl-5 w-screen flex flex-col'}>
           <div>
             <NavLink to="/home">
-              <h1 className="font-bold text-2xl">Motor Book 🏍</h1>
+              <h1 className="font-logo font-bold text-2xl">Motor Book</h1>
             </NavLink>
           </div>
-          <ul className="pt-40">
-            <li>
-              <NavLink to="/home">
+          <ul className="pt-40 font-bold">
+            <li className="mb-4 p-2 bg-green-600 text-white">
+              <NavLink to="/home" activeClassName="active">
                 Motors
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/new-motor">
+            <li className="mb-4 p-2">
+              <NavLink to="/new-motor" activeClassName="active">
                 Add motor
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/reservations">
+            <li className="mb-4 p-2">
+              <NavLink to="/reservations" activeClassName="active">
                 Reservations
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/delete-motor">
+            <li className="mb-4 p-2">
+              <NavLink to="/delete-motor" activeClassName="active">
                 Delete motor
               </NavLink>
             </li>
