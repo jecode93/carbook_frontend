@@ -12,7 +12,7 @@ const Navigation = () => {
 
   return (
     <>
-      <div className={!isOpen ? '' : 'h-screen md:w-3/12 bg-white duration-300'}>
+      <div className={!isOpen ? '' : 'absolute left-0 right-0 md:static h-screen md:w-3/12 bg-white duration-300'}>
         <div // eslint-disable-line jsx-a11y/no-static-element-interactions
           className={
             isOpen
