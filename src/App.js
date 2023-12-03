@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   BrowserRouter, Route, Routes, Navigate,
 } from 'react-router-dom';
@@ -32,5 +33,9 @@ function App() {
     </div>
   );
 }
+
+AuthenticatedRoute.propTypes = {
+  element: PropTypes.node.isRequired,
+};
 
 export default App;
