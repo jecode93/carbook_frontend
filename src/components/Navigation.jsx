@@ -64,7 +64,7 @@ const Navigation = () => {
               </Link>
             </li>
           </ul>
-          <div className="absolute bottom-10">
+          <div className="absolute bottom-10 left-0 right-0 text-center">
             <Link to="signup" onClick={toggleMenu}>
               Sign out
             </Link>
@@ -73,36 +73,36 @@ const Navigation = () => {
       </div>
 
       {/* Desktop navigation */}
-      <div className="hidden md:flex md:flex-col w-3/12 lg:w-2/12 md:h-screen pt-10 pl-5 duration-300">
+      <div className="relative hidden shadow-2xl md:flex md:flex-col md:w-[30%] lg:w-[25%] md:h-screen pt-10 pl-5 duration-300">
         <nav>
           <div className="pt-5">
             <Link to="/">
               <h1 className="font-logo font-bold text-2xl">Motor Book</h1>
             </Link>
           </div>
-          <ul className="pt-40 font-bold">
-            <li className="mb-4 p-2 bg-green-600 text-white">
-              <Link to="/" onClick={toggleMenu}>
+          <ul className="nav-links pt-40 font-bold">
+            <li className="items-links mb-2 p-2 hover:bg-green-600 hover:text-white">
+              <Link to="/" onClick={toggleMenu} className="w-full focus:bg-green-600 focus:text-white p-2">
                 Motorcycles
               </Link>
             </li>
-            <li className="mb-4 p-2">
-              <Link to="/new-motor" onClick={toggleMenu}>
+            <li className="items-links mb-2 p-2 hover:bg-green-600 hover:text-white">
+              <Link to="/new-motor" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2">
                 Add motorcycle
               </Link>
             </li>
-            <li className="mb-4 p-2">
-              <Link to="/reservations" onClick={toggleMenu}>
+            <li className="items-links mb-2 p-2 hover:bg-green-600 hover:text-white">
+              <Link to="/reservations" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2">
                 My Reservations
               </Link>
             </li>
-            <li className="mb-4 p-2">
-              <Link to="/delete-motor" onClick={toggleMenu}>
+            <li className="items-links mb-2 p-2 hover:bg-green-600 hover:text-white">
+              <Link to="/delete-motor" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2">
                 Delete motorcycle
               </Link>
             </li>
           </ul>
-          <div className="absolute bottom-10">
+          <div className="absolute bottom-10 left-0 right-0 text-center">
             <Link to="signup" onClick={toggleMenu}>
               Sign out
             </Link>
