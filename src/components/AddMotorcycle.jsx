@@ -28,7 +28,7 @@ const AddMotorcycle = () => {
     //   console.log(`${pair[0]}, ${pair[1]}`);
     // }
     dispatch(createBike({ data }));
-    console.log('dispatched');
+    // console.log('dispatched');
   };
 
   const handleNameChange = (e) => {
