@@ -36,7 +36,7 @@ const Bikes = () => {
     return (
       <div className="flex flex-wrap items-center justify-center p-6 gap-4">
         {message.bikes.map((bike) => (
-          <Link to="/show" bike={bike}>
+          <Link to={`/show/${bike.id}`} key={bike.id}>
             <div className="flex flex-col bg-[#f9f9f9] w-[300px] gap-1 border-solid border-2 p-1 rounded-lg border-[#e1e1e1]" key={bike.id}>
               <img src={bike.image} alt="" className="min-h-[300px] rounded-lg" />
               <p className="text-center text-xl font-bold">{bike.name}</p>
