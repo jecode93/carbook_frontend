@@ -22,6 +22,20 @@ export const getBikes = createAsyncThunk(
   },
 );
 
+export const createBike = createAsyncThunk(
+  'bikes/createBike',
+  async ({ data }, thunkAPI) => {
+    try {
+      const response = await axios.post(`${BASE_URL}bikes`, data);
+      console.log(data);
+      return response.data;
+    } catch (error) {
+      console.log('error.response.data');
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  },
+);
+
 const initialState = {
   message: '',
   isLoading: false,
@@ -34,12 +48,33 @@ const bikeSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(getBikes.pending,
-        (state) => ({ ...state, isLoading: true }))
-      .addCase(getBikes.fulfilled,
-        (state, action) => ({ ...state, isLoading: false, message: action.payload }))
-      .addCase(getBikes.rejected,
-        (state, action) => ({ ...state, isLoading: false, error: action.payload.message ? action.payload.message : 'An error occurred' }));
+      .addCase(getBikes.pending, (state) => ({ ...state, isLoading: true }))
+      .addCase(getBikes.fulfilled, (state, action) => ({
+        ...state,
+        isLoading: false,
+        message: action.payload,
+      }))
+      .addCase(getBikes.rejected, (state, action) => ({
+        ...state,
+        isLoading: false,
+        error: action.payload.message
+          ? action.payload.message
+          : 'An error occurred',
+      }))
+
+      .addCase(createBike.pending, (state) => ({ ...state, isLoading: true }))
+      .addCase(createBike.fulfilled, (state, action) => ({
+        ...state,
+        isLoading: false,
+        message: action.payload,
+      }))
+      .addCase(createBike.rejected, (state, action) => ({
+        ...state,
+        isLoading: false,
+        error: action.payload.message
+          ? action.payload.message
+          : 'An error occurred',
+      }));
   },
 });
 

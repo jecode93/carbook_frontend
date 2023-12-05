@@ -19,11 +19,11 @@ const AddMotorcycle = () => {
     data.append('name', name);
     data.append('image', file);
     data.append('description', description);
-    data.append('deposit', parseFloat(deposit));
-    data.append('finance_fee', parseFloat(financeFee));
-    data.append('option_to_purchase_fee', parseFloat(optionToPurchaseFee));
-    data.append('total_amount_payable', parseFloat(totalAmountPayable));
-    data.append('duration', Number(duration));
+    data.append('deposit', deposit);
+    data.append('finance_fee', financeFee);
+    data.append('option_to_purchase_fee', optionToPurchaseFee);
+    data.append('total_amount_payable', totalAmountPayable);
+    data.append('duration', duration);
     // for (const pair of data.entries()) {
     //   console.log(`${pair[0]}, ${pair[1]}`);
     // }
@@ -45,23 +45,23 @@ const AddMotorcycle = () => {
   };
 
   const handleDepositChange = (e) => {
-    setDeposit(Number(e.target.value));
+    setDeposit(e.target.value);
   };
 
   const handleFinanceFeeChange = (e) => {
-    setFinanceFee(Number(e.target.value));
+    setFinanceFee(e.target.value);
   };
 
   const handleOptionToPurchaseFeeChange = (e) => {
-    setOptionToPurchaseFee(Number(e.target.value));
+    setOptionToPurchaseFee(e.target.value);
   };
 
   const handleTotalAmountPayableChange = (e) => {
-    setTotalAmountPayable(Number(e.target.value));
+    setTotalAmountPayable(e.target.value);
   };
 
   const handleDurationChange = (e) => {
-    setDuration(Number(e.target.value));
+    setDuration(e.target.value);
   };
 
   return (
