@@ -4,12 +4,10 @@ import PropTypes from 'prop-types';
 import bike1 from './bike1.jpg';
 
 const ShowBike = ({
-  name: initialName,
-  description: initialDescription,
-  price: initialPrice,
-  username: initialAddedBy,
+  bike
 }) => {
   const selectedBikeId = localStorage.getItem('selectedBikeId');
+  console.log(bike)
   // const handleReservation = () => {
   //   const selectedCarId = localStorage.getItem('selectedCarId');
   //   // console.log('Selected Car ID:', selectedCarId);
