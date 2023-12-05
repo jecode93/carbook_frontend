@@ -55,6 +55,11 @@ const Navigation = () => {
             </li>
             <li className="mb-4 p-2">
               <Link to="/reserve" onClick={toggleMenu}>
+                Reserve
+              </Link>
+            </li>
+            <li className="mb-4 p-2">
+              <Link to="/reservation" onClick={toggleMenu}>
                 My Reservations
               </Link>
             </li>

@@ -1,16 +1,23 @@
 import { useParams } from 'react-router';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { getBikes } from '../redux/Bikes/bikeSlice';
 
 const ShowBike = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { message } = useSelector((store) => store.bikes);
   const selectedBike = message.bikes.find((bike) => bike.id.toString() === id);
   useEffect(() => {
     dispatch(getBikes());
   }, [dispatch]);
+
+  const handleReservationClick = () => {
+    navigate('/reserve');
+  };
+
   return (
     <div className="bg-white p-8 flex flex-col md:flex-row items-center justify-center w-full">
       <div className="flex flex-col flex-wrap md:flex-row gap-8 w-full items-center justify-center pt-8">
@@ -56,6 +63,7 @@ const ShowBike = () => {
           <div className="flex justify-center lg:justify-start gap-4">
             <button
               type="button"
+              onClick={handleReservationClick}
               className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-full shadow-md"
             >
               Make Reservation

@@ -29,7 +29,7 @@ function App() {
           <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
           <Route path="show/:id" element={<ShowCar />} />
-          <Route path="reservations" element={<AddReservation />} />
+          <Route path="reserve" element={<AddReservation />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -29,7 +29,6 @@ const AddReservation = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
     dispatch(createReservation(formData));
     setFormData({
       date: '',
@@ -43,7 +42,7 @@ const AddReservation = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6 items-center justify-center p-3 w-full">
+    <div className={`flex flex-col gap-6 items-center justify-center p-3 w-full ${isLoading && 'blur'}`}>
       {showMessage && (
         <h2 className="absolute top-2 right-4 p-2 font-bold text-lg bg-red-400 rounded-2xl w-[40%] text-white text-center">
           {reservationMessage.message}
@@ -51,7 +50,7 @@ const AddReservation = () => {
       )}
       {
         isLoading && (
-        <span>Loading</span>
+        <span className="absolute">Loading</span>
         )
       }
       <div className="flex flex-col gap-4 items-center">
