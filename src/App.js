@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Navigation from './components/Navigation';
 import Bikes from './components/Bikes';
+import ShowCar from './components/ShowBike';
 
 function AuthenticatedRoute({ element }) {
   const isAuthenticated = useSelector((state) => state.auth.authenticate);
@@ -28,6 +29,7 @@ function App() {
           />
           <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
+          <Route path="show-bike" element={<ShowCar />} />
         </Routes>
       </BrowserRouter>
     </div>
