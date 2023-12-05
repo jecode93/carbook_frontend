@@ -30,7 +30,7 @@ const Login = () => {
           type="text"
           name="username"
           autoComplete="username"
-          placeholder="Username"
+          placeholder="Enter your username to login"
           className="rounded-lg border-2 w-3/4 md:w-[50%] p-1"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -38,7 +38,7 @@ const Login = () => {
 
         <button
           type="submit"
-          className="text-xl font-bold bg-green-600 hover:bg-green-700 text-white duration-300 rounded-lg py-1 w-24"
+          className="text-xl bg-green-600 hover:bg-green-700 text-white duration-300 rounded-lg py-1 w-24"
         >
           Login
         </button>
