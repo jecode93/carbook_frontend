@@ -29,7 +29,7 @@ function App() {
           />
           <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
-          <Route path="show-bike" element={<ShowCar />} />
+          <Route path="show" element={<ShowCar />} />
         </Routes>
       </BrowserRouter>
     </div>
