@@ -2,6 +2,7 @@ import { useParams } from 'react-router';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBikes } from '../redux/Bikes/bikeSlice';
+
 const ShowBike = () => {
   const { id } = useParams();
   console.log(id);
