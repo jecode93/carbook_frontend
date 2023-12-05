@@ -13,10 +13,8 @@ import ShowCar from './components/ShowBike';
 
 function AuthenticatedRoute({ element }) {
   const isAuthenticated = useSelector((state) => state.auth.authenticate);
-
   return isAuthenticated ? element : <Navigate to="/login" />;
 }
-
 function App() {
   return (
     <div className="relative md:flex">
@@ -35,9 +33,7 @@ function App() {
     </div>
   );
 }
-
 AuthenticatedRoute.propTypes = {
   element: PropTypes.node.isRequired,
 };
-
 export default App;
