@@ -5,11 +5,9 @@ import { getBikes } from '../redux/Bikes/bikeSlice';
 
 const ShowBike = () => {
   const { id } = useParams();
-  console.log(id);
   const dispatch = useDispatch();
   const { message } = useSelector((store) => store.bikes);
   const selectedBike = message.bikes.find((bike) => bike.id.toString() === id);
-  console.log(selectedBike.description);
   useEffect(() => {
     dispatch(getBikes());
   }, [dispatch]);
@@ -19,9 +17,9 @@ const ShowBike = () => {
         <img
           src={selectedBike.image}
           alt="Bike"
-          className="w-[500px] shadow-2xl rounded-lg"
+          className="lg:w-[50%] shadow-2xl rounded-lg"
         />
-        <div className="md:w-[50%]">
+        <div className="lg:w-[40%] w-full">
           <h2 className="text-3xl font-bold mb-4">{selectedBike.name}</h2>
           <table className="table-auto border-collapse mb-4">
             <tbody>

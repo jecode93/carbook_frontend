@@ -54,7 +54,7 @@ const Navigation = () => {
               </Link>
             </li>
             <li className="mb-4 p-2">
-              <Link to="/reservations" onClick={toggleMenu}>
+              <Link to="/reserve" onClick={toggleMenu}>
                 My Reservations
               </Link>
             </li>
