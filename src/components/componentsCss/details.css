@@ -1,0 +1,229 @@
+.details {
+  padding: 5rem 1rem;
+}
+
+.details h1 {
+  text-align: center;
+  margin: 1rem 0;
+  text-transform: capitalize;
+}
+
+.details .image {
+  height: 100%;
+}
+
+.details .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.details ul {
+  border-radius: 3px;
+  margin: 1rem 0;
+}
+
+.details ul li:nth-child(even) {
+  padding: 0.5rem;
+}
+
+.details ul li:nth-child(odd) {
+  background-color: rgb(180, 180, 180);
+  color: white;
+  padding: 0.5rem;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  position: relative;
+  margin-right: 10px;
+  background:
+    conic-gradient(
+      #f00 0%,
+      #f00 10%,
+      #f80 10%,
+      #ff0 20%,
+      #ff0 20%,
+      #f08 30%,
+      #f00 30%,
+      #f00 40%,
+      #0f8 40%,
+      #0f8 50%,
+      #0ff 50%,
+      #0ff 60%,
+      #08f 60%,
+      #08f 70%,
+      #00f 70%,
+      #00f 80%,
+      #80f 80%,
+      #8f0 90%,
+      #8f0 90%,
+      #0f0 100%
+    );
+}
+
+.smallcircle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+
+.col a {
+  display: flex;
+  align-items: center;
+}
+
+.btt a,
+.btt span {
+  color: white;
+}
+
+.btt span {
+  border: 3px solid white;
+  display: block;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin-left: 1rem;
+  line-height: 28px;
+}
+
+.col a span {
+  margin-right: 10px;
+  font-size: 18px;
+  color: rgb(0, 177, 0);
+}
+
+.col a span i {
+  margin-left: 5px;
+}
+
+.btt {
+  background-color: rgb(0, 177, 0);
+  border: none;
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+@media (min-width: 768px) {
+  .details {
+    display: flex;
+    height: 100vh;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .details h1 {
+    text-align: right;
+  }
+
+  .details li {
+    font-size: 20px;
+  }
+
+  .details .image {
+    width: 60%;
+    height: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+    width: 35%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 5rem;
+  }
+
+  .details .image img {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .details h1,
+  .details ul,
+  .col {
+    margin: 1.5rem 0;
+  }
+
+  .col {
+    flex-direction: column;
+    margin: 1rem 0;
+  }
+
+  .col .circle {
+    width: 100px;
+    margin: 1rem 0;
+    margin-left: auto;
+  }
+
+  .smallcircle {
+    width: 65px;
+  }
+
+  .cirl {
+    margin: 1rem 0;
+    margin-left: auto;
+  }
+
+  .col a {
+    font-weight: 700;
+    font-size: 12px;
+    margin-left: auto;
+  }
+
+  .btt {
+    padding: 1rem;
+    border-radius: 30px;
+  }
+
+  .details .next {
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    padding: 1.2rem;
+    border: none;
+    outline: none;
+    background-color: #15cd15;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .btt {
+    width: 200px;
+    margin-left: auto;
+  }
+
+  .col .circle {
+    margin: 1rem 0;
+    margin-left: auto;
+  }
+}

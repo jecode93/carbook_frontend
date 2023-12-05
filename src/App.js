@@ -10,13 +10,12 @@ import Signup from './components/Signup';
 import Navigation from './components/Navigation';
 import Bikes from './components/Bikes';
 import AddMotorcycle from './components/AddMotorcycle';
+import ShowCar from './components/ShowBike';
 
 function AuthenticatedRoute({ element }) {
   const isAuthenticated = useSelector((state) => state.auth.authenticate);
-
   return isAuthenticated ? element : <Navigate to="/login" />;
 }
-
 function App() {
   return (
     <div className="relative md:flex">
@@ -30,14 +29,13 @@ function App() {
           <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
           <Route path="/new-motor" element={<AddMotorcycle />} />
+          <Route path="show/:id" element={<ShowCar />} />
         </Routes>
       </BrowserRouter>
     </div>
   );
 }
-
 AuthenticatedRoute.propTypes = {
   element: PropTypes.node.isRequired,
 };
-
 export default App;
