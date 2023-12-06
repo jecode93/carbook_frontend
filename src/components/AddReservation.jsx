@@ -41,7 +41,6 @@ const AddReservation = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     if (!isFormValid()) {
-      alert('Please fill in all required fields.');
       return;
     }
     dispatch(createReservation(formData));
