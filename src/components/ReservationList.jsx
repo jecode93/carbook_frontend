@@ -6,7 +6,6 @@ const ReservationList = () => {
   const dispatch = useDispatch();
   const { display, isLoading } = useSelector((store) => store.reservation);
   const { message } = useSelector((store) => store.bikes);
-  console.log(display);
 
   useEffect(() => {
     dispatch(displayReservation());
