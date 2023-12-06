@@ -11,6 +11,7 @@ import Navigation from './components/Navigation';
 import Bikes from './components/Bikes';
 import ShowCar from './components/ShowBike';
 import AddReservation from './components/AddReservation';
+import ReservationList from './components/ReservationList';
 
 function AuthenticatedRoute({ element }) {
   const isAuthenticated = useSelector((state) => state.auth.authenticate);
@@ -31,6 +32,7 @@ function App() {
           <Route path="show/:id" element={<AuthenticatedRoute element={<ShowCar />} />} />
           <Route path="reserve" element={<AuthenticatedRoute element={<AddReservation />} />} />
           <Route path="reserve/:id" element={<AuthenticatedRoute element={<AddReservation />} />} />
+          <Route path="reservation" element={<AuthenticatedRoute element={<ReservationList />} />} />
         </Routes>
       </BrowserRouter>
     </div>
