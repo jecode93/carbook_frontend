@@ -5,12 +5,12 @@ const BASE_URL = 'http://127.0.0.1:3000/';
 
 const tokenSelector = (state) => state.auth.token;
 
-export const getBikes = createAsyncThunk(
-  'bikes/getBikes',
-  async (_, thunkAPI) => {
+export const createReservation = createAsyncThunk(
+  'reservation/createReservation',
+  async (reservation, thunkAPI) => {
     try {
       const token = tokenSelector(thunkAPI.getState());
-      const resp = await axios.get(`${BASE_URL}display_bikes`, {
+      const resp = await axios.post(`${BASE_URL}/reserve`, { reservation }, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -23,24 +23,24 @@ export const getBikes = createAsyncThunk(
 );
 
 const initialState = {
-  message: '',
+  reservationMessage: '',
   isLoading: false,
   error: undefined,
 };
 
-const bikeSlice = createSlice({
+const reservationSlice = createSlice({
   name: 'bikes',
   initialState,
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(getBikes.pending,
+      .addCase(createReservation.pending,
         (state) => ({ ...state, isLoading: true }))
-      .addCase(getBikes.fulfilled,
-        (state, action) => ({ ...state, isLoading: false, message: action.payload }))
-      .addCase(getBikes.rejected,
+      .addCase(createReservation.fulfilled,
+        (state, action) => ({ ...state, isLoading: false, reservationMessage: action.payload }))
+      .addCase(createReservation.rejected,
         (state, action) => ({ ...state, isLoading: false, error: action.payload.message ? action.payload.message : 'An error occurred' }));
   },
 });
 
-export default bikeSlice.reducer;
+export default reservationSlice.reducer;

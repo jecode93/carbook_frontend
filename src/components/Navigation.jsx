@@ -54,7 +54,12 @@ const Navigation = () => {
               </Link>
             </li>
             <li className="mb-4 p-2">
-              <Link to="/reservations" onClick={toggleMenu}>
+              <Link to="/reserve" onClick={toggleMenu}>
+                Reserve
+              </Link>
+            </li>
+            <li className="mb-4 p-2">
+              <Link to="/reservation" onClick={toggleMenu}>
                 My Reservations
               </Link>
             </li>
@@ -89,6 +94,11 @@ const Navigation = () => {
             <li className="items-links mb-2 hover:bg-green-600 hover:text-white">
               <Link to="/new-motor" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2 block">
                 Add motorcycle
+              </Link>
+            </li>
+            <li className="items-links mb-2 hover:bg-green-600 hover:text-white">
+              <Link to="/reserve" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2 block">
+                Reserve
               </Link>
             </li>
             <li className="items-links mb-2 hover:bg-green-600 hover:text-white">
