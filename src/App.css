@@ -1,3 +1,89 @@
+/* export google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Roboto:wght@500&display=swap');
+
 body {
   padding: 0;
+}
+
+.create-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 700px;
+  width: 96%;
+  margin: 40px auto 60px auto;
+  box-sizing: border-box;
+}
+
+.h1 {
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+}
+
+.create-p-tage {
+  font-size: 1.2rem;
+  padding: 0 10px;
+  margin: 10px 0 5px 0;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+}
+
+.create-input-tag {
+  background-color: #f1f1f1;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: 'Lato', sans-serif;
+  height: 38px;
+  padding: 0 10px;
+  border-radius: 4px;
+  outline: none;
+
+  &:focus {
+    border: 1px solid blue;
+  }
+
+  &:nth-of-type(2) {
+    height: 30.5px;
+    box-sizing: content-box;
+    padding: 3.6px 6px;
+  }
+}
+
+.create-textarea-tag {
+  padding: 3px 6px;
+  font-family: 'Lato', sans-serif;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  outline: none;
+
+  &:focus {
+    border: 1px solid blue;
+  }
+}
+
+.create-button-tag {
+  width: 160px;
+  margin: 6px auto 0 auto;
+  background-color: #008170;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  height: 36px;
+  padding: 0 10px;
+  outline: none;
+  border-radius: 4px;
+  margin-top: 18px;
+  cursor: pointer;
+  color: aliceblue;
+
+  &:hover {
+    background-color: #005b41;
+  }
+
+  &:active {
+    background-color: #232d3f;
+  }
 }

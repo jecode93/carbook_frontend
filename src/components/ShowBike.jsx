@@ -64,4 +64,5 @@ const ShowBike = () => {
     </div>
   );
 };
+
 export default ShowBike;

@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Navigation from './components/Navigation';
 import Bikes from './components/Bikes';
+import AddMotorcycle from './components/AddMotorcycle';
 import ShowCar from './components/ShowBike';
 import AddReservation from './components/AddReservation';
 
@@ -28,6 +29,7 @@ function App() {
           />
           <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
+          <Route path="/new-motor" element={<AddMotorcycle />} />
           <Route path="show/:id" element={<AuthenticatedRoute element={<ShowCar />} />} />
           <Route path="reserve" element={<AuthenticatedRoute element={<AddReservation />} />} />
           <Route path="reserve/:id" element={<AuthenticatedRoute element={<AddReservation />} />} />
