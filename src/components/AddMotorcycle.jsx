@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createBike } from '../redux/Bikes/bikeSlice';
 import '../App.css';
+/* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/label-has-for */
 
 const AddMotorcycle = () => {
   const dispatch = useDispatch();
@@ -24,8 +25,9 @@ const AddMotorcycle = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name.trim() || !formData.image || !formData.description || !formData.deposit || !formData.finance_fee
-            || !formData.option_to_purchase_fee || !formData.duration || !formData.total_amount_payable ) {
+    if (!formData.name.trim() || !formData.image || !formData.description
+    || !formData.deposit || !formData.finance_fee || !formData.option_to_purchase_fee
+    || !formData.duration || !formData.total_amount_payable) {
       alert('Please fill all the fields.');
       return;
     }

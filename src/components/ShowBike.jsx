@@ -5,11 +5,9 @@ import { getBikes } from '../redux/Bikes/bikeSlice';
 
 const ShowBike = () => {
   const { id } = useParams();
-  console.log(id);
   const dispatch = useDispatch();
   const { message } = useSelector((store) => store.bikes);
   const selectedBike = message.bikes.find((bike) => bike.id.toString() === id);
-  console.log(selectedBike.description);
   useEffect(() => {
     dispatch(getBikes());
   }, [dispatch]);

@@ -32,7 +32,6 @@ export const createBike = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log("Hello, Worlds!")
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
