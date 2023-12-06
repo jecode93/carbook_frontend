@@ -58,6 +58,8 @@ const reservationSlice = createSlice({
         (state, action) => ({ ...state, isLoading: false, reservationMessage: action.payload }))
       .addCase(createReservation.rejected,
         (state, action) => ({ ...state, isLoading: false, error: action.payload.message ? action.payload.message : 'An error occurred' }))
+      .addCase(displayReservation.pending,
+        (state) => ({ ...state, isLoading: true }))
       .addCase(displayReservation.fulfilled,
         (state, action) => ({ ...state, isLoading: false, display: action.payload }));
   },
