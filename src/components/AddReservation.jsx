@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { IoIosMenu } from 'react-icons/io';
+import { AiOutlineClose } from 'react-icons/ai';
 import { createReservation } from '../redux/reservation/reservationSlice';
 
 const AddReservation = () => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   const dispatch = useDispatch();
   const { id } = useParams();
   const { message } = useSelector((store) => store.bikes);
@@ -57,17 +65,87 @@ const AddReservation = () => {
 
   return (
     <>
-      <div className={`relative flex flex-col h-screen  gap-9 md:gap-6 items-center justify-center p-3 pt-14 w-full text-white bg-cover ${isLoading && 'blur-sm'}`} style={{ backgroundImage: `url(${backgroundImage})` }}>
+      {/* Mobile version */}
+      <div className="relative z-40">
+        <div className={isOpen ? 'absolute' : ''}>
+          <div // eslint-disable-line jsx-a11y/no-static-element-interactions
+            className={isOpen ? 'flex m-2 text-2xl' : 'hidden'}
+            onKeyDown={toggleMenu}
+            onClick={toggleMenu}
+          >
+            <IoIosMenu />
+          </div>
+          <div // eslint-disable-line jsx-a11y/no-static-element-interactions
+            className={isOpen ? 'hidden' : 'fixed z-50 m-2 text-2xl'}
+            onKeyDown={toggleMenu}
+            onClick={toggleMenu}
+          >
+            <AiOutlineClose />
+          </div>
+        </div>
+        <div className={isOpen ? 'hidden' : 'pl-2 flex flex-col bg-white w-full fixed z-40 h-screen'}>
+          <nav className="pt-10">
+            <div className="pt-5">
+              <Link to="/">
+                <h1 className="font-logo font-bold text-2xl">Motor Book</h1>
+              </Link>
+            </div>
+            <ul className="pt-40 font-bold">
+              <li className="mb-2 hover:bg-green-600 hover:text-white">
+                <Link to="/" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2 block">
+                  Motorcycles
+                </Link>
+              </li>
+              <li className="mb-2 hover:bg-green-600 hover:text-white">
+                <Link to="/new-motor" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2 block">
+                  Add motorcycle
+                </Link>
+              </li>
+              <li className="mb-2 hover:bg-green-600 hover:text-white">
+                <Link to="/reserve" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2 block">
+                  Reserve
+                </Link>
+              </li>
+              <li className="mb-2 hover:bg-green-600 hover:text-white">
+                <Link to="/reservation" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2 block">
+                  My Reservations
+                </Link>
+              </li>
+              <li className="mb-2 hover:bg-green-600 hover:text-white">
+                <Link to="/delete-motor" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2 block">
+                  Delete motorcycle
+                </Link>
+              </li>
+            </ul>
+            <div className="absolute z-40 bottom-10 left-0 right-0 text-center">
+              <Link to="signup" onClick={toggleMenu}>
+                Sign out
+              </Link>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div
+        className={`relative flex flex-col h-screen z-0 gap-9 md:gap-6 items-center justify-center p-3 pt-14 w-full text-white bg-cover ${
+          isLoading && 'blur-sm'
+        }`}
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      >
         <div className="flex flex-col gap-4 items-center z-20">
-          <h2 className="text-center font-bold text-2xl md:text-3xl">Book Your Favourite Bike</h2>
+          <h2 className="text-center font-bold text-2xl md:text-3xl">
+            Book Your Favourite Bike
+          </h2>
           <p className="text-center md:w-3/4 text-md font-bold">
-            There are 34 different versions of Harley Davidson. We have showrooms all over the
-            globe which some include test riding facilities. If you wish to
-            find out if a test ride is available in your area,
-            then choose your date, bike, and location below.
+            There are 34 different versions of Harley Davidson. We have
+            showrooms all over the globe which some include test riding
+            facilities. If you wish to find out if a test ride is available in
+            your area, then choose your date, bike, and location below.
           </p>
         </div>
-        <form className=" w-full lg:w-3/4 items-center rounded-lg flex flex-col gap-5 z-20 text-black" onSubmit={handleFormSubmit}>
+        <form
+          className=" w-full lg:w-3/4 items-center rounded-lg flex flex-col gap-5 z-20 text-black"
+          onSubmit={handleFormSubmit}
+        >
           <div className="flex flex-col md:flex-row items-center justify-center gap-5 md:gap-2 w-[90%]">
             <input
               type="date"
@@ -77,7 +155,13 @@ const AddReservation = () => {
               onChange={handleInputChange}
               required
             />
-            <select name="bike_id" className="shadow-lg rounded-xl p-1 text-center w-full md:w-1/4" value={formData.bike_id} onChange={handleInputChange} required>
+            <select
+              name="bike_id"
+              className="shadow-lg rounded-xl p-1 text-center w-full md:w-1/4"
+              value={formData.bike_id}
+              onChange={handleInputChange}
+              required
+            >
               <option value="">Select a Bike</option>
               {message.bikes.map((bike) => (
                 <option key={bike.id} value={bike.id}>
@@ -85,7 +169,13 @@ const AddReservation = () => {
                 </option>
               ))}
             </select>
-            <select name="city" className="shadow-lg rounded-xl p-1 text-center w-full md:w-1/4" value={formData.city} onChange={handleInputChange} required>
+            <select
+              name="city"
+              className="shadow-lg rounded-xl p-1 text-center w-full md:w-1/4"
+              value={formData.city}
+              onChange={handleInputChange}
+              required
+            >
               <option value="">Select your Country</option>
               <option>India</option>
               <option>America</option>
@@ -100,23 +190,21 @@ const AddReservation = () => {
           </button>
         </form>
         <div className="absolute bg-[#96bf01] w-full h-full opacity-75 top-0 z-0" />
-        {
-      isLoading && (
-      <span className="absolute top-2/4 left-2/4 font-bold text-2xl">
-        Loading....
-      </span>
-      )
-    }
-        {(showMessage && reservationMessage.message) && (
-        <h2 className="absolute top-2 right-4 p-2 font-bold text-base md:text-lg bg-green-400 rounded-2xl w-[40%] text-white text-center">
-          {reservationMessage.message}
-        </h2>
+        {isLoading && (
+          <span className="absolute top-2/4 left-2/4 font-bold text-2xl">
+            Loading....
+          </span>
+        )}
+        {showMessage && reservationMessage.message && (
+          <h2 className="absolute top-2 right-4 p-2 font-bold text-base md:text-lg bg-green-400 rounded-2xl w-[40%] text-white text-center">
+            {reservationMessage.message}
+          </h2>
         )}
 
-        {(showMessage && error) && (
-        <h2 className="absolute top-2 right-4 p-2 font-bold text-base md:text-lg bg-red-600 rounded-2xl w-[40%] text-white text-center">
-          {error}
-        </h2>
+        {showMessage && error && (
+          <h2 className="absolute top-2 right-4 p-2 font-bold text-base md:text-lg bg-red-600 rounded-2xl w-[40%] text-white text-center">
+            {error}
+          </h2>
         )}
       </div>
     </>
