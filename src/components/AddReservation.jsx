@@ -118,7 +118,7 @@ const AddReservation = () => {
               </li>
             </ul>
             <div className="absolute z-40 bottom-10 left-0 right-0 text-center">
-              <Link to="signup" onClick={toggleMenu}>
+              <Link to="signup" onClick={toggleMenu} className="bg-red-600 hover:bg-red-700 duration-300 shadow-2xl text-white font-bold px-3 py-2 rounded-lg">
                 Sign out
               </Link>
             </div>
