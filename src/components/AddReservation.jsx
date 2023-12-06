@@ -83,7 +83,7 @@ const AddReservation = () => {
             <AiOutlineClose />
           </div>
         </div>
-        <div className={isOpen ? 'hidden' : 'pl-2 flex flex-col bg-white w-full fixed z-40 h-screen'}>
+        <div className={isOpen ? 'hidden' : 'pl-2 flex flex-col bg-white w-full md:w-[30%] duration-300 fixed z-40 h-screen'}>
           <nav className="pt-10">
             <div className="pt-5">
               <Link to="/">
