@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 
 const DeleteMotorcycle = () => {
     const { message } = useSelector((store) => store.bikes);
@@ -8,7 +9,7 @@ const DeleteMotorcycle = () => {
           <h1 className="font-bold text-2xl mb-8">My Reservatons</h1>
           {message.bikes.map((bike) => {
             return (
-              <div key={reserve.id}>
+              <div key={bike.id}>
                 <h2 >{bike.name}</h2>
                 <p>{bike.total_amount_payable}</p>
               </div>
