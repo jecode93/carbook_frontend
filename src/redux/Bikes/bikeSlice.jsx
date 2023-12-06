@@ -10,7 +10,7 @@ export const getBikes = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const token = tokenSelector(thunkAPI.getState());
-      const resp = await axios.get(`${BASE_URL}/display_bikes`, {
+      const resp = await axios.get(`${BASE_URL}display_bikes`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
