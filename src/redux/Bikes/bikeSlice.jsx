@@ -23,10 +23,15 @@ export const getBikes = createAsyncThunk(
 );
 
 export const createBike = createAsyncThunk(
-  'bikes/createBike',
-  async ({ bike }, thunkAPI) => {
+  'bike/createBike',
+  async (bike, thunkAPI) => {
     try {
-      const response = await axios.post(`${BASE_URL}bikes`, { bike });
+      const token = tokenSelector(thunkAPI.getState());
+      const response = await axios.post(`${BASE_URL}create_bikes`, { bike }, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       console.log("Hello, Worlds!")
       return response.data;
     } catch (error) {
