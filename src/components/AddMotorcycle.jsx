@@ -15,19 +15,19 @@ const AddMotorcycle = () => {
   const [duration, setDuration] = useState('');
 
   const handleAddingMotorcycle = () => {
-    const data = new FormData();
-    data.append('name', name);
-    data.append('image', file);
-    data.append('description', description);
-    data.append('deposit', deposit);
-    data.append('finance_fee', financeFee);
-    data.append('option_to_purchase_fee', optionToPurchaseFee);
-    data.append('total_amount_payable', totalAmountPayable);
-    data.append('duration', duration);
+    const bike = new FormData();
+    bike.append('name', name);
+    bike.append('image', file);
+    bike.append('description', description);
+    bike.append('deposit', deposit);
+    bike.append('finance_fee', financeFee);
+    bike.append('option_to_purchase_fee', optionToPurchaseFee);
+    bike.append('total_amount_payable', totalAmountPayable);
+    bike.append('duration', duration);
     // for (const pair of data.entries()) {
     //   console.log(`${pair[0]}, ${pair[1]}`);
     // }
-    dispatch(createBike({ data }));
+    dispatch(createBike({ bike }));
     // console.log('dispatched');
   };
 

@@ -24,13 +24,12 @@ export const getBikes = createAsyncThunk(
 
 export const createBike = createAsyncThunk(
   'bikes/createBike',
-  async ({ data }, thunkAPI) => {
+  async ({ bike }, thunkAPI) => {
     try {
-      const response = await axios.post(`${BASE_URL}bikes`, data);
-      // console.log(data);
+      const response = await axios.post(`${BASE_URL}bikes`, { bike });
+      console.log("Hello, Worlds!")
       return response.data;
     } catch (error) {
-      // console.log('error.response.data');
       return thunkAPI.rejectWithValue(error.response.data);
     }
   },
