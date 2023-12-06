@@ -5,146 +5,136 @@ import '../App.css';
 
 const AddMotorcycle = () => {
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
-  const [file, setFile] = useState('');
-  const [description, setDescription] = useState('');
-  const [deposit, setDeposit] = useState('');
-  const [financeFee, setFinanceFee] = useState('');
-  const [optionToPurchaseFee, setOptionToPurchaseFee] = useState('');
-  const [totalAmountPayable, setTotalAmountPayable] = useState('');
-  const [duration, setDuration] = useState('');
-
-  const handleAddingMotorcycle = () => {
-    const bike = new FormData();
-    bike.append('name', name);
-    bike.append('image', file);
-    bike.append('description', description);
-    bike.append('deposit', deposit);
-    bike.append('finance_fee', financeFee);
-    bike.append('option_to_purchase_fee', optionToPurchaseFee);
-    bike.append('total_amount_payable', totalAmountPayable);
-    bike.append('duration', duration);
-    // for (const pair of data.entries()) {
-    //   console.log(`${pair[0]}, ${pair[1]}`);
-    // }
-    dispatch(createBike({ bike }));
-    // console.log('dispatched');
+  const [formData, setFormData] = useState({
+    name: '',
+    image: '',
+    description: '',
+    deposit: '',
+    finance_fee: '',
+    option_to_purchase_fee: '',
+    total_amount_payable: '',
+    duration: '',
+  });
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name.trim() || !formData.image || !formData.description || !formData.deposit || !formData.finance_fee
+            || !formData.option_to_purchase_fee || !formData.duration || !formData.total_amount_payable ) {
+      alert('Please fill all the fields.');
+      return;
+    }
+    dispatch(createBike(formData));
+    setFormData({
+      name: '',
+      image: '',
+      description: '',
+      deposit: '',
+      finance_fee: '',
+      option_to_purchase_fee: '',
+      total_amount_payable: '',
+      duration: '',
+    });
   };
-
-  const handleFileChange = () => {
-    setFile('Hello');
-    // setFile(e.target.files[0]);
-  };
-
-  const handleDescriptionChange = (e) => {
-    setDescription(e.target.value);
-  };
-
-  const handleDepositChange = (e) => {
-    setDeposit(e.target.value);
-  };
-
-  const handleFinanceFeeChange = (e) => {
-    setFinanceFee(e.target.value);
-  };
-
-  const handleOptionToPurchaseFeeChange = (e) => {
-    setOptionToPurchaseFee(e.target.value);
-  };
-
-  const handleTotalAmountPayableChange = (e) => {
-    setTotalAmountPayable(e.target.value);
-  };
-
-  const handleDurationChange = (e) => {
-    setDuration(e.target.value);
-  };
-
   return (
-    <>
-      <div className="create-container">
-        <h1 className="h1">Add Motorcycle</h1>
-        <p className="create-p-tage">Name</p>
-        <input
-          className="create-input-tag"
-          type="text"
-          value={name}
-          onChange={handleNameChange}
-          placeholder="Name"
-        />
-        <p className="create-p-tage">Choose File</p>
-        <input
-          className="create-input-tag"
-          type="file"
-          onChange={handleFileChange}
-          placeholder="File"
-        />
-        <p className="create-p-tage">Description</p>
-        <textarea
-          className="create-textarea-tag"
-          value={description}
-          onChange={handleDescriptionChange}
-          placeholder="Description"
-          rows={2}
-        />
-        <p className="create-p-tage">Deposit</p>
-        <input
-          className="create-input-tag"
-          type="number"
-          value={deposit}
-          onChange={handleDepositChange}
-          min={0}
-          placeholder="00.00"
-        />
-        <p className="create-p-tage">Finance fee</p>
-        <input
-          className="create-input-tag"
-          type="number"
-          value={financeFee}
-          onChange={handleFinanceFeeChange}
-          min={0}
-          placeholder="00.00"
-        />
-        <p className="create-p-tage">Option to Purchase Fee</p>
-        <input
-          className="create-input-tag"
-          type="number"
-          value={optionToPurchaseFee}
-          onChange={handleOptionToPurchaseFeeChange}
-          min={0}
-          placeholder="00.00"
-        />
-        <p className="create-p-tage">Total Amount Payable</p>
-        <input
-          className="create-input-tag"
-          type="number"
-          value={totalAmountPayable}
-          onChange={handleTotalAmountPayableChange}
-          min={0}
-          placeholder="00.00"
-        />
-        <p className="create-p-tage">Duration</p>
-        <input
-          className="create-input-tag"
-          type="number"
-          value={duration}
-          onChange={handleDurationChange}
-          min={0}
-          placeholder="00"
-        />
-        <button
-          type="button"
-          onClick={handleAddingMotorcycle}
-          className="create-button-tag"
-        >
-          ADD
-        </button>
-      </div>
-    </>
+    <div className="flex flex-col w-full p-3 gap-16 items-center ">
+      <h2 className="text-center font-bold text-xl">Add New Bike</h2>
+      <form className="flex flex-col gap-4 w-3/4" onSubmit={handleSubmit}>
+        <div className="flex flex-col  w-full gap-1">
+          <label className="font-bold">Bike Name</label>
+          <input
+            type="text"
+            name="name"
+            autoComplete="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            className="rounded-md border-solid border-4 p-1"
+          />
+        </div>
+        <div className="flex flex-col  w-full gap-1">
+          <label className="font-bold">Bike Image</label>
+          <input
+            type="text"
+            name="image"
+            value={formData.image}
+            onChange={handleInputChange}
+            className="rounded-md border-solid border-4 p-1"
+          />
+        </div>
+        <div className="flex flex-col  w-full gap-1">
+          <label className="font-bold">Description</label>
+          <textarea
+            name="description"
+            value={formData.description}
+            onChange={handleInputChange}
+            cols="10"
+            className="rounded-md border-solid border-2 p-1"
+            rows="10"
+          />
+        </div>
+        <div className="flex flex-col  w-full gap-1">
+          <label className="font-bold">Deposit</label>
+          <input
+            type="text"
+            name="deposit"
+            autoComplete="deposit"
+            value={formData.deposit}
+            onChange={handleInputChange}
+            className="rounded-md border-solid border-2 p-1"
+          />
+        </div>
+        <div className="flex flex-col  w-full gap-1">
+          <label className="font-bold">Finance Fees</label>
+          <input
+            type="text"
+            name="finance_fee"
+            autoComplete="finance_fee"
+            value={formData.finance_fee}
+            onChange={handleInputChange}
+            className="rounded-md border-solid border-2 p-1"
+          />
+        </div>
+        <div className="flex flex-col  w-full gap-1">
+          <label className="font-bold">Option to Purchase Fee</label>
+          <input
+            type="text"
+            name="option_to_purchase_fee"
+            autoComplete="option_to_purchase_fee"
+            value={formData.option_to_purchase_fee}
+            onChange={handleInputChange}
+            className="rounded-md border-solid border-2 p-1"
+          />
+        </div>
+        <div className="flex flex-col  w-full gap-1">
+          <label className="font-bold">Total amount Payable</label>
+          <input
+            type="text"
+            name="total_amount_payable"
+            autoComplete="total_amount_payable"
+            value={formData.total_amount_payable}
+            onChange={handleInputChange}
+            className="rounded-md border-solid border-4 p-1"
+          />
+        </div>
+        <div className="flex flex-col  w-full gap-1">
+          <label className="font-bold">Duration</label>
+          <input
+            type="text"
+            name="duration"
+            autoComplete="duration"
+            value={formData.duration}
+            onChange={handleInputChange}
+            className="rounded-md border-solid border-2 p-1"
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 };
 
