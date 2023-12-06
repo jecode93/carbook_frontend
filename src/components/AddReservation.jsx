@@ -8,7 +8,7 @@ const AddReservation = () => {
   const { id } = useParams();
   const { message } = useSelector((store) => store.bikes);
   const selectedBike = message.bikes && message.bikes.find((bike) => bike.id === Number(id));
-  const { reservationMessage, isLoading } = useSelector((store) => store.reservation);
+  const { reservationMessage, isLoading, error } = useSelector((store) => store.reservation);
 
   const [showMessage, setShowMessage] = useState(false);
   const [formData, setFormData] = useState({
@@ -103,14 +103,20 @@ const AddReservation = () => {
         <div className="absolute bg-[#96bf01] w-full h-full opacity-75 top-0 z-0" />
         {
       isLoading && (
-      <span className="absolute top-2/4 left-2/4 font-bold">
+      <span className="absolute top-2/4 left-2/4 font-bold text-2xl">
         Loading....
       </span>
       )
     }
-        {showMessage && (
-        <h2 className="absolute top-2 right-4 p-2 font-bold text-base md:text-lg bg-red-400 rounded-2xl w-[40%] text-white text-center">
+        {(showMessage && reservationMessage.message) && (
+        <h2 className="absolute top-2 right-4 p-2 font-bold text-base md:text-lg bg-green-400 rounded-2xl w-[40%] text-white text-center">
           {reservationMessage.message}
+        </h2>
+        )}
+
+        {(showMessage && error) && (
+        <h2 className="absolute top-2 right-4 p-2 font-bold text-base md:text-lg bg-red-600 rounded-2xl w-[40%] text-white text-center">
+          {error}
         </h2>
         )}
       </div>

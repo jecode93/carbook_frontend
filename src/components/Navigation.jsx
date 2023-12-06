@@ -97,6 +97,11 @@ const Navigation = () => {
               </Link>
             </li>
             <li className="items-links mb-2 hover:bg-green-600 hover:text-white">
+              <Link to="/reserve" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2 block">
+                Reserve
+              </Link>
+            </li>
+            <li className="items-links mb-2 hover:bg-green-600 hover:text-white">
               <Link to="/reservations" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2 block">
                 My Reservations
               </Link>
