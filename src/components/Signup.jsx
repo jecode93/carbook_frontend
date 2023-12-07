@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signup } from '../redux/auth/authSlice';
 
 const Signup = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
 
   const handleSignup = (e) => {
     e.preventDefault();
     dispatch(signup(username));
+    navigate('/login');
   };
 
   return (

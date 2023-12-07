@@ -4,7 +4,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
