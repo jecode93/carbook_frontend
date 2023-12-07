@@ -39,6 +39,23 @@ export const createBike = createAsyncThunk(
   },
 );
 
+export const deleteBike = createAsyncThunk(
+  'bike/deleteBike',
+  async (bikeId, thunkAPI) => {
+    try {
+      const token = tokenSelector(thunkAPI.getState());
+      await axios.delete(`${BASE_URL}delete_bike/${bikeId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return bikeId;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  },
+);
+
 const initialState = {
   message: '',
   isLoading: false,
@@ -72,6 +89,31 @@ const bikeSlice = createSlice({
         message: action.payload,
       }))
       .addCase(createBike.rejected, (state, action) => ({
+        ...state,
+        isLoading: false,
+        error: action.payload.message
+          ? action.payload.message
+          : 'An error occurred',
+      }))
+
+      .addCase(deleteBike.pending, (state) => ({
+        ...state,
+        isLoading: true,
+      }))
+      .addCase(deleteBike.fulfilled, (state, action) => {
+        const updatedBikes = state.message.bikes.filter(
+          (bike) => bike.id !== action.payload,
+        );
+        return {
+          ...state,
+          isLoading: false,
+          message: {
+            ...state.message,
+            bikes: updatedBikes,
+          },
+        };
+      })
+      .addCase(deleteBike.rejected, (state, action) => ({
         ...state,
         isLoading: false,
         error: action.payload.message
