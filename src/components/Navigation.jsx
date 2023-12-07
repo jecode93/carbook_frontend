@@ -74,7 +74,7 @@ const Navigation = () => {
           </ul>
           <div className="absolute bottom-10 left-0 right-0 text-center">
             <Link
-              to="signup"
+              to="/login"
               onClick={() => {
                 dispatch(logout());
                 toggleMenu();
@@ -123,7 +123,7 @@ const Navigation = () => {
           </ul>
           <div className="absolute bottom-10 left-0 right-0 text-center">
             <Link
-              to="signup"
+              to="/login"
               onClick={() => {
                 dispatch(logout());
                 toggleMenu();

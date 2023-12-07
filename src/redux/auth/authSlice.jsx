@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
 
 const BASE_URL = 'http://127.0.0.1:3000';
@@ -38,11 +39,14 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    logout: (state) => ({
-      ...state,
-      token: null,
-      userId: null,
-    }),
+    logout: (state) => {
+      Cookies.remove('Authorization');
+      return {
+        ...state,
+        token: null,
+        userId: null,
+      };
+    },
   },
   extraReducers(builder) {
     builder
