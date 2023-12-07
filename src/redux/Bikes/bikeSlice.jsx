@@ -1,15 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const BASE_URL = 'http://127.0.0.1:3000/';
-
-const tokenSelector = (state) => state.auth.token;
 
 export const getBikes = createAsyncThunk(
   'bikes/getBikes',
   async (_, thunkAPI) => {
     try {
-      const token = tokenSelector(thunkAPI.getState());
+      const token = Cookies.get('Authorization');
       const resp = await axios.get(`${BASE_URL}display_bikes`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -26,7 +25,7 @@ export const createBike = createAsyncThunk(
   'bike/createBike',
   async (bike, thunkAPI) => {
     try {
-      const token = tokenSelector(thunkAPI.getState());
+      const token = Cookies.get('Authorization');
       const response = await axios.post(`${BASE_URL}create_bikes`, { bike }, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -43,7 +42,7 @@ export const deleteBike = createAsyncThunk(
   'bike/deleteBike',
   async (bikeId, thunkAPI) => {
     try {
-      const token = tokenSelector(thunkAPI.getState());
+      const token = Cookies.get('Authorization');
       await axios.delete(`${BASE_URL}bikes/${bikeId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
