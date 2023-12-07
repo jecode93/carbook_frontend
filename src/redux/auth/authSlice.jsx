@@ -29,12 +29,12 @@ export const signup = createAsyncThunk(
 );
 
 const initialState = {
+  userId: null,
   message: '',
   token: null,
 };
 
 const authSlice = createSlice({
-  userId: null,
   name: 'auth',
   initialState,
   reducers: {
