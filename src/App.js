@@ -14,6 +14,7 @@ import AddReservation from './components/AddReservation';
 import AddMotorcycle from './components/AddMotorcycle';
 import Layout from './components/Layout';
 import ReservationList from './components/ReservationList';
+import DeleteMotorcycle from './components/DeleteMotorcycle';
 
 function AuthenticatedRoute({ element }) {
   const isAuthenticated = useSelector((state) => state.auth.authenticate);
@@ -47,9 +48,10 @@ function App() {
             path="reservation"
             element={<AuthenticatedRoute element={<ReservationList />} />}
           />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+          <Route path="delete-motor" element={<AuthenticatedRoute element={<DeleteMotorcycle />} />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 AuthenticatedRoute.propTypes = {
