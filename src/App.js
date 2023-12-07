@@ -7,11 +7,12 @@ import './App.css';
 import { useSelector } from 'react-redux';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import Navigation from './components/Navigation';
+// import Navigation from './components/Navigation';
 import Bikes from './components/Bikes';
-import AddMotorcycle from './components/AddMotorcycle';
 import ShowCar from './components/ShowBike';
 import AddReservation from './components/AddReservation';
+import AddMotorcycle from './components/AddMotorcycle';
+import Layout from './components/Layout';
 import ReservationList from './components/ReservationList';
 
 function AuthenticatedRoute({ element }) {
@@ -20,24 +21,35 @@ function AuthenticatedRoute({ element }) {
 }
 function App() {
   return (
-    <div className="relative md:flex">
-      <BrowserRouter>
-        <Navigation />
-        <Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="reserve"
+          element={<AuthenticatedRoute element={<AddReservation />} />}
+        />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<AuthenticatedRoute element={<Bikes />} />} />
           <Route
-            path="/"
-            element={<AuthenticatedRoute element={<Bikes />} />}
+            path="/new-motor"
+            element={<AuthenticatedRoute element={<AddMotorcycle />} />}
           />
-          <Route path="signup" element={<Signup />} />
-          <Route path="login" element={<Login />} />
-          <Route path="/new-motor" element={<AddMotorcycle />} />
-          <Route path="show/:id" element={<AuthenticatedRoute element={<ShowCar />} />} />
-          <Route path="reserve" element={<AuthenticatedRoute element={<AddReservation />} />} />
-          <Route path="reserve/:id" element={<AuthenticatedRoute element={<AddReservation />} />} />
-          <Route path="reservation" element={<AuthenticatedRoute element={<ReservationList />} />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+          <Route
+            path="show/:id"
+            element={<AuthenticatedRoute element={<ShowCar />} />}
+          />
+          <Route
+            path="reserve/:id"
+            element={<AuthenticatedRoute element={<AddReservation />} />}
+          />
+          <Route
+            path="reservation"
+            element={<AuthenticatedRoute element={<ReservationList />} />}
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 AuthenticatedRoute.propTypes = {
