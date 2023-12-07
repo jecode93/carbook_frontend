@@ -1,15 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const BASE_URL = 'http://127.0.0.1:3000/';
-
-const tokenSelector = (state) => state.auth.token;
 
 export const displayReservation = createAsyncThunk(
   'reservation/displayReservation',
   async (_, thunkAPI) => {
     try {
-      const token = tokenSelector(thunkAPI.getState());
+      const token = Cookies.get('Authorization');
       const resp = await axios.get(`${BASE_URL}display_reservation`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -26,7 +25,7 @@ export const createReservation = createAsyncThunk(
   'reservation/createReservation',
   async (reservation, thunkAPI) => {
     try {
-      const token = tokenSelector(thunkAPI.getState());
+      const token = Cookies.get('Authorization');
       const resp = await axios.post(`${BASE_URL}reserve`, { reservation }, {
         headers: {
           Authorization: `Bearer ${token}`,

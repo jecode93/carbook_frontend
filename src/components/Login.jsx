@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 import { login } from '../redux/auth/authSlice';
 
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { authenticate } = useSelector((store) => store.auth);
+  const { token } = useSelector((store) => store.auth);
   const [username, setUsername] = useState('');
 
   useEffect(() => {
-    if (authenticate) {
+    if (token) {
+      Cookies.set('Authorization', token, { expires: 7 });
       navigate('/');
     }
-  }, [authenticate, navigate]);
+  }, [token, navigate]);
 
   const handleLogin = (e) => {
     e.preventDefault();

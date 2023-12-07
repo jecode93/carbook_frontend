@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { IoIosMenu } from 'react-icons/io';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logout } from '../redux/auth/authSlice';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -70,7 +73,13 @@ const Navigation = () => {
             </li>
           </ul>
           <div className="absolute bottom-10 left-0 right-0 text-center">
-            <Link to="signup" onClick={toggleMenu}>
+            <Link
+              to="signup"
+              onClick={() => {
+                dispatch(logout());
+                toggleMenu();
+              }}
+            >
               Sign out
             </Link>
           </div>
@@ -113,7 +122,14 @@ const Navigation = () => {
             </li>
           </ul>
           <div className="absolute bottom-10 left-0 right-0 text-center">
-            <Link to="signup" onClick={toggleMenu} className="bg-red-600 hover:bg-red-700 duration-300 shadow-2xl text-white font-bold px-3 py-2 rounded-lg">
+            <Link
+              to="signup"
+              onClick={() => {
+                dispatch(logout());
+                toggleMenu();
+              }}
+              className="bg-red-600 hover:bg-red-700 duration-300 shadow-2xl text-white font-bold px-3 py-2 rounded-lg"
+            >
               Sign out
             </Link>
           </div>
