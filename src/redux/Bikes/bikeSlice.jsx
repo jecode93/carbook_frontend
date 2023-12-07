@@ -44,7 +44,7 @@ export const deleteBike = createAsyncThunk(
   async (bikeId, thunkAPI) => {
     try {
       const token = tokenSelector(thunkAPI.getState());
-      await axios.delete(`${BASE_URL}delete_bike/${bikeId}`, {
+      await axios.delete(`${BASE_URL}bikes/${bikeId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
