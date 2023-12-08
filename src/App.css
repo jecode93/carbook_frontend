@@ -46,6 +46,7 @@ body {
   padding: 6px 10px;
   border-radius: 4px;
   outline: none;
+
   /* box-sizing: border-box; */
 
   &:focus {
@@ -69,7 +70,7 @@ body {
   padding: 6px 10px;
   outline: none;
   border-radius: 4px;
-  margin: 18px auto 40px auto;  
+  margin: 18px auto 40px auto;
   cursor: pointer;
   color: aliceblue;
   display: flex;
