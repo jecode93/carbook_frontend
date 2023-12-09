@@ -52,9 +52,9 @@ const AddMotorcycle = () => {
   };
   return (
     <div className="container-div">
-      <form className="create-container" onSubmit={handleSubmit}>
-        <h2 className="h1">Add New Bike</h2>
-        <label className="create-p-tag">Bike Name</label>
+      <form className="create-container rounded-xl shadow-2xl border p-2" onSubmit={handleSubmit}>
+        <h2 className="h1">Add New Car</h2>
+        <label className="create-p-tag">Car Name</label>
         <input
           type="text"
           name="name"
@@ -63,7 +63,7 @@ const AddMotorcycle = () => {
           onChange={handleInputChange}
           className="create-input-tag"
         />
-        <label className="create-p-tag">Bike Image</label>
+        <label className="create-p-tag">Car Image</label>
         <input
           type="text"
           name="image"

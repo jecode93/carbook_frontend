@@ -48,12 +48,12 @@ const Navigation = () => {
           <ul className="pt-40 font-bold">
             <li className="mb-4 p-2 bg-green-600 text-white">
               <Link to="/" onClick={toggleMenu}>
-                Motorcycles
+                Cars
               </Link>
             </li>
             <li className="mb-4 p-2">
               <Link to="/new-motor" onClick={toggleMenu}>
-                Add motorcycle
+                Add Cars
               </Link>
             </li>
             <li className="mb-4 p-2">
@@ -68,7 +68,7 @@ const Navigation = () => {
             </li>
             <li className="mb-4 p-2">
               <Link to="/delete-motor" onClick={toggleMenu}>
-                Delete motorcycle
+                Delete Cars
               </Link>
             </li>
           </ul>
@@ -91,18 +91,18 @@ const Navigation = () => {
         <nav>
           <div className="pt-5">
             <Link to="/">
-              <h1 className="font-logo font-bold text-2xl">Motor Book</h1>
+              <h1 className="font-logo font-bold text-2xl">CAR Book</h1>
             </Link>
           </div>
           <ul className="nav-links pt-40 font-bold">
             <li className="items-links mb-2 hover:bg-green-600 hover:text-white">
               <Link to="/" onClick={toggleMenu} className="w-full focus:bg-green-600 focus:text-white p-2 block">
-                Motorcycles
+                Cars
               </Link>
             </li>
             <li className="items-links mb-2 hover:bg-green-600 hover:text-white">
               <Link to="/new-motor" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2 block">
-                Add motorcycle
+                Add Cars
               </Link>
             </li>
             <li className="items-links mb-2 hover:bg-green-600 hover:text-white">
@@ -117,7 +117,7 @@ const Navigation = () => {
             </li>
             <li className="items-links mb-2 hover:bg-green-600 hover:text-white">
               <Link to="/delete-motor" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2 block">
-                Delete motorcycle
+                Delete Cars
               </Link>
             </li>
           </ul>

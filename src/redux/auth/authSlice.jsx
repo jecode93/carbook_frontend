@@ -33,6 +33,7 @@ const initialState = {
   userId: null,
   message: '',
   token: null,
+  isLoading: false,
 };
 
 const authSlice = createSlice({
@@ -50,6 +51,7 @@ const authSlice = createSlice({
   },
   extraReducers(builder) {
     builder
+      .addCase(login.pending, (state) => ({ ...state, isLoading: true }))
       .addCase(login.fulfilled, (state, action) => {
         const { token } = action.payload;
         const userId = jwtDecode(token).user_id;
@@ -58,10 +60,12 @@ const authSlice = createSlice({
           ...state,
           token,
           userId,
+          isLoading: false,
         };
       })
+      .addCase(signup.pending, (state) => ({ ...state, isLoading: true }))
       .addCase(signup.fulfilled,
-        (state, action) => ({ ...state, message: action.payload.message }));
+        (state, action) => ({ ...state, message: action.payload.message, isLoading: false }));
   },
 });
 

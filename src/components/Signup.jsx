@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { signup } from '../redux/auth/authSlice';
+import CircularProgressBar from './CircularprogressBar';
 
 const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { isLoading } = useSelector((store) => store.auth);
   const [username, setUsername] = useState('');
 
   const handleSignup = (e) => {
@@ -16,7 +18,7 @@ const Signup = () => {
 
   return (
     <form
-      className="flex flex-col gap-8 items-center justify-center w-full h-screen"
+      className="relative flex flex-col gap-8 items-center justify-center w-full h-screen"
       onSubmit={handleSignup}
     >
       <input
@@ -41,6 +43,7 @@ const Signup = () => {
           Login
         </Link>
       </p>
+      {isLoading && <CircularProgressBar />}
     </form>
   );
 };

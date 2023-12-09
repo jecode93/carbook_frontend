@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { displayReservation } from '../redux/reservation/reservationSlice';
 import { getBikes } from '../redux/Bikes/bikeSlice';
+import CircularProgressBar from './CircularprogressBar';
 
 const ReservationList = () => {
   const dispatch = useDispatch();
@@ -14,12 +15,10 @@ const ReservationList = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    return (
-      <div className="flex items-center justify-center w-full">Loading</div>
-    );
+    return <><CircularProgressBar /></>;
   }
 
-  if (display) {
+  if (display.message && display.message.length > 0 && message) {
     return (
       <div className="flex flex-col gap-6 p-4 items-center w-full">
         <h1 className="font-bold text-2xl mb-8">My Reservatons</h1>
@@ -37,7 +36,7 @@ const ReservationList = () => {
     );
   }
   return (
-    <div>No Reservation to show</div>
+    <div className="text-lg md:text-2xl font-bold absolute top-[50%]">No Reservation to show</div>
   );
 };
 

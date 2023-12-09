@@ -1,21 +1,33 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { getBikes } from '../redux/Bikes/bikeSlice';
 
 const ShowBike = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
   const { message } = useSelector((store) => store.bikes);
-  const selectedBike = message.bikes && message.bikes.find((bike) => bike.id === Number(id));
+  const selectedBike = message && message.bikes && message.bikes
+    .find((bike) => bike.id === Number(id));
 
+  useEffect(() => {
+    dispatch(getBikes());
+  }, [dispatch]);
+
+  if (!selectedBike) {
+    return (
+      <h1>Loading...</h1>
+    );
+  }
   return (
     <div className="bg-white p-8 flex flex-col md:flex-row items-center justify-center w-full">
-      <div className="flex flex-col flex-wrap md:flex-row gap-8 w-full items-center justify-center pt-8">
+      <div className="flex flex-col flex-wrap md:flex-row gap-8 w-full items-center justify-center mt-96 md:mt-0 pt-8">
         <img
           src={selectedBike.image}
           alt="Bike"
-          className="lg:w-[50%] shadow-2xl rounded-lg"
+          className="lg:w-[50%] max-w-[90%] shadow-2xl rounded-lg"
         />
-        <div className="lg:w-[40%] w-full">
+        <div className="lg:w-[40%] w-full pb-2">
           <h2 className="text-3xl font-bold mb-4">{selectedBike.name}</h2>
           <table className="table-auto border-collapse mb-4">
             <tbody>

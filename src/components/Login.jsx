@@ -3,19 +3,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { login } from '../redux/auth/authSlice';
+import CircularProgressBar from './CircularprogressBar';
 
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { token } = useSelector((store) => store.auth);
+  const { token, userId, isLoading } = useSelector((store) => store.auth);
   const [username, setUsername] = useState('');
 
   useEffect(() => {
     if (token) {
       Cookies.set('Authorization', token, { expires: 7 });
+      Cookies.set('userId', userId, { expires: 7 });
       navigate('/');
     }
-  }, [token, navigate]);
+  }, [token, navigate, userId]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -49,6 +51,7 @@ const Login = () => {
           <Link to="/signup" className="hover:underline">Sign up now</Link>
         </p>
       </form>
+      {isLoading && <CircularProgressBar />}
     </div>
   );
 };

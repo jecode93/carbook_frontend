@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { IoIosMenu } from 'react-icons/io';
 import { AiOutlineClose } from 'react-icons/ai';
 import { createReservation } from '../redux/reservation/reservationSlice';
+import { getBikes } from '../redux/Bikes/bikeSlice';
+import CircularProgressBar from './CircularprogressBar';
 
 const AddReservation = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -15,7 +17,8 @@ const AddReservation = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { message } = useSelector((store) => store.bikes);
-  const selectedBike = message.bikes && message.bikes.find((bike) => bike.id === Number(id));
+  const selectedBike = message && message.bikes && message.bikes
+    .find((bike) => bike.id === Number(id));
   const { reservationMessage, isLoading, error } = useSelector((store) => store.reservation);
 
   const [showMessage, setShowMessage] = useState(false);
@@ -24,6 +27,10 @@ const AddReservation = () => {
     bike_id: selectedBike ? selectedBike.id : '',
     city: '',
   });
+
+  useEffect(() => {
+    dispatch(getBikes());
+  }, [dispatch]);
 
   const [backgroundImage, setBackgroundImage] = useState(selectedBike ? selectedBike.image : '');
 
@@ -87,18 +94,18 @@ const AddReservation = () => {
           <nav className="pt-10">
             <div className="pt-5">
               <Link to="/">
-                <h1 className="font-logo font-bold text-2xl">Motor Book</h1>
+                <h1 className="font-logo font-bold text-2xl">Car Book</h1>
               </Link>
             </div>
             <ul className="pt-40 font-bold">
               <li className="mb-2 hover:bg-green-600 hover:text-white">
                 <Link to="/" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2 block">
-                  Motorcycles
+                  Car
                 </Link>
               </li>
               <li className="mb-2 hover:bg-green-600 hover:text-white">
                 <Link to="/new-motor" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2 block">
-                  Add motorcycle
+                  Add Car
                 </Link>
               </li>
               <li className="mb-2 hover:bg-green-600 hover:text-white">
@@ -113,7 +120,7 @@ const AddReservation = () => {
               </li>
               <li className="mb-2 hover:bg-green-600 hover:text-white">
                 <Link to="/delete-motor" onClick={toggleMenu} className="focus:bg-green-600 focus:text-white p-2 block">
-                  Delete motorcycle
+                  Delete Car
                 </Link>
               </li>
             </ul>
@@ -126,17 +133,15 @@ const AddReservation = () => {
         </div>
       </div>
       <div
-        className={`relative flex flex-col h-screen z-0 gap-9 md:gap-6 items-center justify-center p-3 pt-14 w-full text-white bg-cover ${
-          isLoading && 'blur-sm'
-        }`}
+        className="relative flex flex-col h-screen z-0 gap-9 md:gap-6 items-center justify-center p-3 pt-14 w-full text-white bg-cover"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         <div className="flex flex-col gap-4 items-center z-20">
           <h2 className="text-center font-bold text-2xl md:text-3xl">
-            Book Your Favourite Bike
+            Book Your Favourite Car
           </h2>
           <p className="text-center md:w-3/4 text-md font-bold">
-            There are 34 different versions of Harley Davidson. We have
+            There are 34 different versions of car. We have
             showrooms all over the globe which some include test riding
             facilities. If you wish to find out if a test ride is available in
             your area, then choose your date, bike, and location below.
@@ -162,8 +167,8 @@ const AddReservation = () => {
               onChange={handleInputChange}
               required
             >
-              <option value="">Select a Bike</option>
-              {message.bikes.map((bike) => (
+              <option value="">Select a Car</option>
+              {message && message.bikes && message.bikes.map((bike) => (
                 <option key={bike.id} value={bike.id}>
                   {bike.name}
                 </option>
@@ -189,11 +194,9 @@ const AddReservation = () => {
             Book
           </button>
         </form>
-        <div className="absolute bg-[#96bf01] w-full h-full opacity-75 top-0 z-0" />
+        <div className="absolute bg-[#96bf01] w-full h-full opacity-40 op  top-0 z-0" />
         {isLoading && (
-          <span className="absolute top-2/4 left-2/4 font-bold text-2xl">
-            Loading....
-          </span>
+          <CircularProgressBar />
         )}
         {showMessage && reservationMessage.message && (
           <h2 className="absolute top-2 right-4 p-2 font-bold text-base md:text-lg bg-green-400 rounded-2xl w-[40%] text-white text-center">
