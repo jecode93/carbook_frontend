@@ -7,28 +7,19 @@ import { getBikes } from '../redux/Bikes/bikeSlice';
 const Bikes = () => {
   const dispatch = useDispatch();
   const [currentSlide, setCurrentSlide] = useState(0);
-  // const [transformValue, setTransformValue] = useState(0);
   const { message, isLoading, error } = useSelector((store) => store.bikes);
 
   useEffect(() => {
     dispatch(getBikes());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   setTransformValue((message.bikes.length - 3) * 16.66 - currentSlide * 33.33);
-  // }, [currentSlide, message.bikes.length]);
-
   useEffect(() => {
-    const interval = setTimeout(() => {
+    const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % message.bikes.length);
     }, message.bikes.length > 1 ? 3000 : null);
 
     return () => clearInterval(interval);
-  }, [currentSlide, message.bikes.length]);
-
-  // const goToSlide = (index) => {
-  //   setCurrentSlide(index);
-  // };
+  }, [message.bikes.length]);
 
   const handleNextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % message.bikes.length);
