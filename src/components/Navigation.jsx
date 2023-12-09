@@ -18,6 +18,7 @@ const Navigation = () => {
       {/* Mobile version */}
       <div className={!isOpen ? '' : 'md:hidden fixed top-0 left-0 right-0 bottom-0 md:static h-screen md:w-3/12 bg-white duration-300'}>
         <div // eslint-disable-line jsx-a11y/no-static-element-interactions
+          id="menu-toggle"
           className={
             isOpen
               ? 'hidden'
@@ -42,7 +43,7 @@ const Navigation = () => {
         <nav className={!isOpen ? 'hidden duration-300' : 'pt-10 pl-5 flex flex-col'}>
           <div className="pt-5">
             <Link to="/">
-              <h1 className="font-logo font-bold text-2xl">Motor Book</h1>
+              <h1 className="font-logo font-bold text-2xl">CAR Book</h1>
             </Link>
           </div>
           <ul className="pt-40 font-bold">
