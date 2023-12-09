@@ -49,13 +49,20 @@ const Cars = () => {
         <div className="p-4 carosoul flex overflow-x-hidden w-full scroll-smooth gap-8">
           {message.bikes.map((bike) => (
             <Link to={`/show/${bike.id}`} key={bike.id}>
-              <div className="flex flex-col bg-[#F9F9F9] w-[350px] gap-1 border-solid border-2 p-1 rounded-lg border-[#E1E1E1]" key={bike.id}>
-                <img src={bike.image} alt="" className="min-h-[300px] rounded-lg" />
-                <p className="text-center text-xl font-bold">{bike.name}</p>
-                <p className="text-lg">
-                  {truncateText(bike.description, 20)}
-                  <span className="text-blue-500 ml-1">Read More...</span>
+              <div
+                className="flex flex-col items-center relative bg-[#F9F9F9] w-[300px] h-full gap-1 border-solid border-2 p-1 rounded-lg border-[#E1E1E1]"
+                key={bike.id}
+              >
+                <img
+                  src={bike.image}
+                  alt=""
+                  className="min-h-[300px] rounded-lg"
+                />
+                <p className="text-center text-xl mb-5 font-bold">{bike.name}</p>
+                <p className="h-full mb-10 text-lg">
+                  {truncateText(bike.description, 10)}
                 </p>
+                <p className="text-blue-500 absolute bottom-2">Read More...</p>
               </div>
             </Link>
           ))}
