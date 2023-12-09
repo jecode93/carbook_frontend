@@ -18,7 +18,7 @@ const ReservationList = () => {
     return <><CircularProgressBar /></>;
   }
 
-  if (display) {
+  if (display.message && display.message.length > 0 && message) {
     return (
       <div className="flex flex-col gap-6 p-4 items-center w-full">
         <h1 className="font-bold text-2xl mb-8">My Reservatons</h1>
@@ -36,7 +36,7 @@ const ReservationList = () => {
     );
   }
   return (
-    <div>No Reservation to show</div>
+    <div className="text-lg md:text-2xl font-bold absolute top-[50%]">No Reservation to show</div>
   );
 };
 

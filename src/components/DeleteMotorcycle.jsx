@@ -32,7 +32,7 @@ const DeleteMotorcycle = () => {
     );
   }
 
-  if (userBikes) {
+  if (userBikes && userBikes.length > 0) {
     return (
       <div className="flex flex-col gap-16 pt-12 items-center w-full p-3">
         <h1 className="font-bold text-2xl">CARS</h1>
@@ -49,7 +49,9 @@ const DeleteMotorcycle = () => {
     );
   }
 
-  return <div className="font-bold text-xl">No Bikes Add the Bike first</div>;
+  return (
+    <div className="text-lg md:text-2xl font-bold absolute top-[50%]">No Bikes to show</div>
+  );
 };
 
 export default DeleteMotorcycle;
