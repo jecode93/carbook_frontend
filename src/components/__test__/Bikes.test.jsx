@@ -1,13 +1,13 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { MemoryRouter } from "react-router-dom";
-import configureStore from "redux-mock-store";
-import Bikes from "../Bikes";
+import React from 'react';
+import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
+import configureStore from 'redux-mock-store';
+import Bikes from '../Bikes';
 
 const mockStore = configureStore([]);
 
-describe("Cars Component", () => {
+describe('Cars Component', () => {
   let store;
   let component;
 
@@ -27,11 +27,11 @@ describe("Cars Component", () => {
         <MemoryRouter>
           <Bikes />
         </MemoryRouter>
-      </Provider>
+      </Provider>,
     );
   });
 
-  it("renders correctly", () => {
+  it('renders correctly', () => {
     expect(component.container).toMatchSnapshot();
   });
 });
