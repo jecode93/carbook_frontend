@@ -50,7 +50,7 @@ const DeleteMotorcycle = () => {
   }
 
   return (
-    <div className="text-lg md:text-2xl font-bold absolute top-[50%]">No Bikes to show</div>
+    <div className="text-lg md:text-2xl font-bold absolute top-[50%]">No Cars to show</div>
   );
 };
 
