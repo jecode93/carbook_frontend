@@ -3,6 +3,13 @@
 
 body {
   padding: 0;
+  color: #171717;
+}
+
+.container-div {
+  width: 96%;
+  max-width: 700px;
+  margin: 40px auto;
 }
 
 .create-container {
@@ -10,8 +17,7 @@ body {
   flex-direction: column;
   justify-content: center;
   max-width: 700px;
-  width: 96%;
-  margin: 40px auto 60px auto;
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -23,7 +29,7 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-.create-p-tage {
+.create-p-tag {
   font-size: 1.2rem;
   padding: 0 10px;
   margin: 10px 0 5px 0;
@@ -33,13 +39,15 @@ body {
 
 .create-input-tag {
   background-color: #f1f1f1;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 400;
   font-family: 'Lato', sans-serif;
   height: 38px;
-  padding: 0 10px;
+  padding: 6px 10px;
   border-radius: 4px;
   outline: none;
+
+  /* box-sizing: border-box; */
 
   &:focus {
     border: 1px solid blue;
@@ -52,32 +60,23 @@ body {
   }
 }
 
-.create-textarea-tag {
-  padding: 3px 6px;
-  font-family: 'Lato', sans-serif;
-  border-radius: 4px;
-  background-color: #f1f1f1;
-  outline: none;
-
-  &:focus {
-    border: 1px solid blue;
-  }
-}
-
 .create-button-tag {
   width: 160px;
-  margin: 6px auto 0 auto;
   background-color: #008170;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   font-family: 'Lato', sans-serif;
   height: 36px;
-  padding: 0 10px;
+  padding: 6px 10px;
   outline: none;
   border-radius: 4px;
-  margin-top: 18px;
+  margin: 18px auto 40px auto;
   cursor: pointer;
   color: aliceblue;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     background-color: #005b41;

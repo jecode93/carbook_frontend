@@ -4,7 +4,7 @@ import {
   BrowserRouter, Route, Routes, Navigate,
 } from 'react-router-dom';
 import './App.css';
-import { useSelector } from 'react-redux';
+import Cookies from 'js-cookie';
 import Login from './components/Login';
 import Signup from './components/Signup';
 // import Navigation from './components/Navigation';
@@ -14,10 +14,11 @@ import AddReservation from './components/AddReservation';
 import AddMotorcycle from './components/AddMotorcycle';
 import Layout from './components/Layout';
 import ReservationList from './components/ReservationList';
+import DeleteMotorcycle from './components/DeleteMotorcycle';
 
 function AuthenticatedRoute({ element }) {
-  const isAuthenticated = useSelector((state) => state.auth.authenticate);
-  return isAuthenticated ? element : <Navigate to="/login" />;
+  const isCookieSet = Cookies.get('Authorization') !== undefined;
+  return isCookieSet ? element : <Navigate to="/login" />;
 }
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
             path="reservation"
             element={<AuthenticatedRoute element={<ReservationList />} />}
           />
+          <Route path="delete-motor" element={<AuthenticatedRoute element={<DeleteMotorcycle />} />} />
         </Route>
       </Routes>
     </BrowserRouter>
