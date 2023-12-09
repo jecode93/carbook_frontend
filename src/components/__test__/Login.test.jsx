@@ -1,10 +1,9 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import Login from '../Login';
-import { login } from '../../redux/auth/authSlice';
 
 const mockStore = configureStore([]);
 
@@ -26,12 +25,11 @@ describe('Login Component', () => {
         <MemoryRouter>
           <Login />
         </MemoryRouter>
-      </Provider>
+      </Provider>,
     );
   });
 
   it('renders correctly', () => {
     expect(component.container).toMatchSnapshot();
-  }); 
-  
+  });
 });

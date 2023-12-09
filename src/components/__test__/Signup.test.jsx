@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import Signup from '../Signup';
-import { signup } from '../../redux/auth/authSlice';
 
 const mockStore = configureStore([]);
 
@@ -24,12 +23,11 @@ describe('Signup Component', () => {
         <MemoryRouter>
           <Signup />
         </MemoryRouter>
-      </Provider>
+      </Provider>,
     );
   });
 
   it('renders correctly', () => {
     expect(component.toJSON()).toMatchSnapshot();
   });
-  
 });
