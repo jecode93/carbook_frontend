@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { displayReservation } from '../redux/reservation/reservationSlice';
 import { getBikes } from '../redux/Bikes/bikeSlice';
+import CircularProgressBar from './CircularprogressBar';
 
 const ReservationList = () => {
   const dispatch = useDispatch();
@@ -14,9 +15,7 @@ const ReservationList = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    return (
-      <div className="flex items-center justify-center w-full">Loading</div>
-    );
+    return <><CircularProgressBar /></>;
   }
 
   if (display) {
