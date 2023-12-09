@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 import { getBikes, deleteBike } from '../redux/Bikes/bikeSlice';
 import CircularProgressBar from './CircularprogressBar';
 
-const DeleteMotorcycle = () => {
+const DeleteCars = () => {
   const userId = Cookies.get('userId');
   const { message, isLoading, error } = useSelector((state) => state.bikes);
   const userBikes = message && message.bikes
@@ -54,4 +54,4 @@ const DeleteMotorcycle = () => {
   );
 };
 
-export default DeleteMotorcycle;
+export default DeleteCars;

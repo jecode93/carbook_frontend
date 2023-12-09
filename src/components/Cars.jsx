@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { getBikes } from '../redux/Bikes/bikeSlice';
 import CircularProgressBar from './CircularprogressBar';
 
-const Bikes = () => {
+const Cars = () => {
   const dispatch = useDispatch();
   const { message, isLoading, error } = useSelector((store) => store.bikes);
 
@@ -75,4 +75,4 @@ const Bikes = () => {
   return <div>No Bikes to show</div>;
 };
 
-export default Bikes;
+export default Cars;

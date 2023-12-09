@@ -7,14 +7,13 @@ import './App.css';
 import Cookies from 'js-cookie';
 import Login from './components/Login';
 import Signup from './components/Signup';
-// import Navigation from './components/Navigation';
-import Bikes from './components/Bikes';
+import Cars from './components/Cars';
 import ShowCar from './components/ShowBike';
 import AddReservation from './components/AddReservation';
-import AddMotorcycle from './components/AddMotorcycle';
+import AddCars from './components/AddCars';
 import Layout from './components/Layout';
 import ReservationList from './components/ReservationList';
-import DeleteMotorcycle from './components/DeleteMotorcycle';
+import DeleteCars from './components/DeleteCars';
 
 function AuthenticatedRoute({ element }) {
   const isCookieSet = Cookies.get('Authorization') !== undefined;
@@ -31,10 +30,10 @@ function App() {
           element={<AuthenticatedRoute element={<AddReservation />} />}
         />
         <Route path="/" element={<Layout />}>
-          <Route index element={<AuthenticatedRoute element={<Bikes />} />} />
+          <Route index element={<AuthenticatedRoute element={<Cars />} />} />
           <Route
             path="/new-motor"
-            element={<AuthenticatedRoute element={<AddMotorcycle />} />}
+            element={<AuthenticatedRoute element={<AddCars />} />}
           />
           <Route
             path="show/:id"
@@ -48,7 +47,7 @@ function App() {
             path="reservation"
             element={<AuthenticatedRoute element={<ReservationList />} />}
           />
-          <Route path="delete-motor" element={<AuthenticatedRoute element={<DeleteMotorcycle />} />} />
+          <Route path="delete-motor" element={<AuthenticatedRoute element={<DeleteCars />} />} />
         </Route>
       </Routes>
     </BrowserRouter>
