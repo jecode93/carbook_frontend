@@ -87,7 +87,7 @@ const Navigation = () => {
       </div>
 
       {/* Desktop navigation */}
-      <div className="relative hidden shadow-2xl md:flex md:flex-col md:w-[30%] lg:w-[20%] md:h-screen pt-10 pl-5 duration-300">
+      <div className="relative z-40 bg-white hidden shadow-2xl md:flex md:flex-col md:w-[30%] lg:w-[20%] md:h-screen pt-10 pl-5 duration-300">
         <nav>
           <div className="pt-5">
             <Link to="/">
