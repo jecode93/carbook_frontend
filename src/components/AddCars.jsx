@@ -4,7 +4,7 @@ import { createBike } from '../redux/Bikes/bikeSlice';
 import '../App.css';
 /* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/label-has-for */
 
-const AddMotorcycle = () => {
+const AddCars = () => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: '',
@@ -138,4 +138,4 @@ const AddMotorcycle = () => {
   );
 };
 
-export default AddMotorcycle;
+export default AddCars;

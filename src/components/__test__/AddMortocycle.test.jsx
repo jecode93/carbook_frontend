@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import AddMotorcycle from '../AddMotorcycle';
+import AddMotorcycle from '../AddCars';
 
 const mockStore = configureStore([]);
 
