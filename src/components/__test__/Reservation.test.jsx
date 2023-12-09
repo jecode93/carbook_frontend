@@ -15,8 +15,12 @@ describe('ReservationList Component', () => {
       reservation: {
         display: {
           message: [
-            { id: 1, bike_id: 1, city: 'City1', date: '2023-12-31' },
-            { id: 2, bike_id: 2, city: 'City2', date: '2023-12-30' },
+            {
+              id: 1, bike_id: 1, city: 'City1', date: '2023-12-31',
+            },
+            {
+              id: 2, bike_id: 2, city: 'City2', date: '2023-12-30',
+            },
           ],
         },
         isLoading: false,
@@ -34,7 +38,7 @@ describe('ReservationList Component', () => {
     component = renderer.create(
       <Provider store={store}>
         <ReservationList />
-      </Provider>
+      </Provider>,
     );
   });
 

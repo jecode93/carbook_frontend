@@ -33,7 +33,7 @@ describe('AddReservation Component', () => {
         <MemoryRouter>
           <AddReservation />
         </MemoryRouter>
-      </Provider>
+      </Provider>,
     );
   });
 
