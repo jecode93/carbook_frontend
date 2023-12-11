@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { getBikes } from '../redux/Bikes/bikeSlice';
+import CircularProgressBar from './CircularprogressBar';
 
 const ShowBike = () => {
   const { id } = useParams();
@@ -15,19 +16,17 @@ const ShowBike = () => {
   }, [dispatch]);
 
   if (!selectedBike) {
-    return (
-      <h1>Loading...</h1>
-    );
+    return <><CircularProgressBar /></>;
   }
   return (
-    <div className="bg-white mdp-8 flex flex-col md:flex-row items-center justify-center w-full">
-      <div className="flex flex-col flex-wrap md:flex-row gap-8 w-full items-center justify-center mt-96 md:mt-0 pt-8">
+    <div className="bg-white mdp-8 flex flex-col md:flex-row items-center justify-center pt-72 lg:pt-0 w-full">
+      <div className="flex flex-col flex-wrap md:flex-row gap-8 w-full items-center justify-center">
         <img
           src={selectedBike.image}
           alt="Bike"
           className="lg:w-[50%] max-w-[90%] shadow-2xl rounded-lg"
         />
-        <div className="lg:w-[40%] w-full pb-2">
+        <div className="lg:w-[40%] w-full p-2">
           <h2 className="text-3xl font-bold mb-4">{selectedBike.name}</h2>
           <table className="table-auto border-collapse mb-4">
             <tbody>
