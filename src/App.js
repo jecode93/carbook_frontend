@@ -15,44 +15,44 @@ import Layout from './components/Layout';
 import ReservationList from './components/ReservationList';
 import DeleteCars from './components/DeleteCars';
 
-function AuthenticatedRoute({ element }) {
+const AuthenticatedRoute = ({ element }) => {
   const isCookieSet = Cookies.get('Authorization') !== undefined;
   return isCookieSet ? element : <Navigate to="/login" />;
-}
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+};
+
+const App = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path="signup" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
+      <Route
+        path="reserve"
+        element={<AuthenticatedRoute element={<AddReservation />} />}
+      />
+      <Route path="/" element={<Layout />}>
+        <Route index element={<AuthenticatedRoute element={<Cars />} />} />
         <Route
-          path="reserve"
+          path="/new-motor"
+          element={<AuthenticatedRoute element={<AddCars />} />}
+        />
+        <Route
+          path="show/:id"
+          element={<AuthenticatedRoute element={<ShowCar />} />}
+        />
+        <Route
+          path="reserve/:id"
           element={<AuthenticatedRoute element={<AddReservation />} />}
         />
-        <Route path="/" element={<Layout />}>
-          <Route index element={<AuthenticatedRoute element={<Cars />} />} />
-          <Route
-            path="/new-motor"
-            element={<AuthenticatedRoute element={<AddCars />} />}
-          />
-          <Route
-            path="show/:id"
-            element={<AuthenticatedRoute element={<ShowCar />} />}
-          />
-          <Route
-            path="reserve/:id"
-            element={<AuthenticatedRoute element={<AddReservation />} />}
-          />
-          <Route
-            path="reservation"
-            element={<AuthenticatedRoute element={<ReservationList />} />}
-          />
-          <Route path="delete-motor" element={<AuthenticatedRoute element={<DeleteCars />} />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
-}
+        <Route
+          path="reservation"
+          element={<AuthenticatedRoute element={<ReservationList />} />}
+        />
+        <Route path="delete-motor" element={<AuthenticatedRoute element={<DeleteCars />} />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
+);
+
 AuthenticatedRoute.propTypes = {
   element: PropTypes.node.isRequired,
 };
