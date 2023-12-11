@@ -76,14 +76,14 @@ const AddReservation = () => {
       <div className="relative z-40">
         <div className={isOpen ? 'absolute' : ''}>
           <div // eslint-disable-line jsx-a11y/no-static-element-interactions
-            className={isOpen ? 'flex m-2 text-2xl' : 'hidden'}
+            className={isOpen ? 'flex m-2 text-2xl cursor-pointer' : 'hidden'}
             onKeyDown={toggleMenu}
             onClick={toggleMenu}
           >
             <IoIosMenu />
           </div>
           <div // eslint-disable-line jsx-a11y/no-static-element-interactions
-            className={isOpen ? 'hidden' : 'fixed z-50 m-2 text-2xl'}
+            className={isOpen ? 'hidden' : 'fixed z-50 m-2 text-2xl cursor-pointer'}
             onKeyDown={toggleMenu}
             onClick={toggleMenu}
           >
