@@ -9,7 +9,7 @@ Array [
       className="absolute"
     >
       <div
-        className="flex m-2 text-2xl"
+        className="flex m-2 text-2xl cursor-pointer"
         onClick={[Function]}
         onKeyDown={[Function]}
       >

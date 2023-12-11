@@ -13,7 +13,9 @@ describe('Signup Component', () => {
 
   beforeEach(() => {
     store = mockStore({
-      message: '',
+      auth: {
+        token: null,
+      },
     });
 
     store.dispatch = jest.fn();
