@@ -19,14 +19,14 @@ const ShowBike = () => {
     return <><CircularProgressBar /></>;
   }
   return (
-    <div className="bg-white p-8 flex flex-col items-center justify-center shadow-lg rounded-lg">
-      <div className="flex flex-col lg:flex-row items-center lg:items-start lg:gap-64">
+    <div className="bg-white md:p-8 flex flex-col md:flex-row items-center justify-center mt-[20rem] md:mt-0 lg:mt-0 w-full">
+      <div className="flex flex-col md:flex-wrap lg:flex-row items-center justify-center md:pt-60 lg:pt-8 gap-8">
         <img
           src={selectedBike.image}
           alt="Bike"
-          className="lg:w-[50%] max-w-[90%] shadow-2xl rounded-lg"
+          className="lg:w-[40%] max-w-[90%] shadow-2xl rounded-lg"
         />
-        <div className="lg:w-[40%] w-full p-2">
+        <div className="lg:w-[55%] w-full p-2">
           <h2 className="text-3xl font-bold mb-4">{selectedBike.name}</h2>
           <table className="table-auto border-collapse mb-4">
             <tbody>
