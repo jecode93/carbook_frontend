@@ -16,13 +16,12 @@ const Navigation = () => {
   return (
     <>
       {/* Mobile version */}
-      <div className={!isOpen ? '' : 'md:hidden fixed top-0 left-0 right-0 bottom-0 md:static h-screen md:w-3/12 bg-white duration-300'}>
+      <div className={!isOpen ? '' : 'md:hidden fixed top-0 left-0 right-0 bottom-0 md:static h-screen md:w-3/12 bg-white duration-300 z-40'}>
         <div // eslint-disable-line jsx-a11y/no-static-element-interactions
-          id="menu-toggle"
           className={
             isOpen
               ? 'hidden'
-              : 'flex absolute left-2 top-2 p-1 text-2xl font-bold md:bg-none lg:hidden md:hidden cursor-pointer'
+              : 'flex absolute left-2 top-2 p-1 text-2xl font-bold md:bg-none lg:hidden md:hidden cursor-pointer z-40'
           }
           onKeyDown={toggleMenu}
           onClick={toggleMenu}
@@ -80,6 +79,7 @@ const Navigation = () => {
                 dispatch(logout());
                 toggleMenu();
               }}
+              className="bg-red-600 hover:bg-red-700 duration-300 shadow-2xl text-white font-bold px-3 py-2 rounded-lg"
             >
               Sign out
             </Link>
