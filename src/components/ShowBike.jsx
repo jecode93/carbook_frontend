@@ -27,7 +27,7 @@ const ShowBike = () => {
           alt="Bike"
           className="lg:w-[50%] max-w-[90%] shadow-2xl rounded-lg"
         />
-        <div className="lg:w-[40%] w-full pb-2">
+        <div className="lg:w-[40%] w-full pb-2 md">
           <h2 className="text-3xl font-bold mb-4">{selectedBike.name}</h2>
           <table className="table-auto border-collapse mb-4">
             <tbody>
