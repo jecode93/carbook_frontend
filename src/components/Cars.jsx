@@ -7,7 +7,6 @@ import CircularProgressBar from './CircularprogressBar';
 const Cars = () => {
   const dispatch = useDispatch();
   const { message, isLoading, error } = useSelector((store) => store.bikes);
-  console.log(message);
 
   useEffect(() => {
     dispatch(getBikes());

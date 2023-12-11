@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Cars Component renders correctly 1`] = `
-<div>
-  <div>
-    No Bikes to show
-  </div>
-</div>
-`;
