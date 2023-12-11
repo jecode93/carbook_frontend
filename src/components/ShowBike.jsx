@@ -20,7 +20,7 @@ const ShowBike = () => {
     );
   }
   return (
-    <div className="bg-white p-8 flex flex-col md:flex-row items-center justify-center w-full">
+    <div className="bg-white mdp-8 flex flex-col md:flex-row items-center justify-center w-full">
       <div className="flex flex-col flex-wrap md:flex-row gap-8 w-full items-center justify-center mt-96 md:mt-0 pt-8">
         <img
           src={selectedBike.image}

@@ -7,6 +7,7 @@ import CircularProgressBar from './CircularprogressBar';
 const Cars = () => {
   const dispatch = useDispatch();
   const { message, isLoading, error } = useSelector((store) => store.bikes);
+  console.log(message);
 
   useEffect(() => {
     dispatch(getBikes());
@@ -22,12 +23,12 @@ const Cars = () => {
 
   const leftClick = () => {
     const box = document.querySelector('.carosoul');
-    box.scrollLeft -= 350;
+    box.scrollLeft -= 300;
   };
 
   const rightClick = () => {
     const box = document.querySelector('.carosoul');
-    box.scrollLeft += 350;
+    box.scrollLeft += 300;
   };
 
   if (isLoading) {
@@ -43,10 +44,10 @@ const Cars = () => {
     );
   }
 
-  if (message && message.bikes) {
+  if (message && message.bikes && message.bikes.length > 0) {
     return (
-      <div className="relative flex flex-col overflow-hidden w-full items-center justify-center p-6">
-        <div className="p-4 carosoul flex overflow-x-hidden w-full scroll-smooth gap-8">
+      <div className="relative flex flex-col overflow-hidden items-center justify-center p-6">
+        <div className="md:p-4 carosoul flex overflow-x-hidden w-full scroll-smooth gap-8">
           {message.bikes.map((bike) => (
             <Link to={`/show/${bike.id}`} key={bike.id}>
               <div
@@ -79,7 +80,7 @@ const Cars = () => {
     );
   }
 
-  return <div>No Bikes to show</div>;
+  return <div className="w-full font-bold flex items-center justify-center text-2xl">No Bikes to show</div>;
 };
 
 export default Cars;
