@@ -1,0 +1,125 @@
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import Cookies from 'js-cookie';
+
+const BASE_URL = 'http://127.0.0.1:3000/';
+
+export const getBikes = createAsyncThunk(
+  'bikes/getBikes',
+  async (_, thunkAPI) => {
+    try {
+      const token = Cookies.get('Authorization');
+      const resp = await axios.get(`${BASE_URL}display_bikes`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return resp.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+
+export const createBike = createAsyncThunk(
+  'bike/createBike',
+  async (bike, thunkAPI) => {
+    try {
+      const token = Cookies.get('Authorization');
+      const response = await axios.post(`${BASE_URL}create_bikes`, { bike }, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  },
+);
+
+export const deleteBike = createAsyncThunk(
+  'bike/deleteBike',
+  async (bikeId, thunkAPI) => {
+    try {
+      const token = Cookies.get('Authorization');
+      await axios.delete(`${BASE_URL}bikes/${bikeId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return bikeId;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  },
+);
+
+const initialState = {
+  message: '',
+  isLoading: false,
+  error: undefined,
+};
+
+const bikeSlice = createSlice({
+  name: 'bikes',
+  initialState,
+  reducers: {},
+  extraReducers(builder) {
+    builder
+      .addCase(getBikes.pending, (state) => ({ ...state, isLoading: true }))
+      .addCase(getBikes.fulfilled, (state, action) => ({
+        ...state,
+        isLoading: false,
+        message: action.payload,
+      }))
+      .addCase(getBikes.rejected, (state, action) => ({
+        ...state,
+        isLoading: false,
+        error: action.payload.message
+          ? action.payload.message
+          : 'An error occurred',
+      }))
+
+      .addCase(createBike.pending, (state) => ({ ...state, isLoading: true }))
+      .addCase(createBike.fulfilled, (state, action) => ({
+        ...state,
+        isLoading: false,
+        message: action.payload,
+      }))
+      .addCase(createBike.rejected, (state, action) => ({
+        ...state,
+        isLoading: false,
+        error: action.payload.message
+          ? action.payload.message
+          : 'An error occurred',
+      }))
+
+      .addCase(deleteBike.pending, (state) => ({
+        ...state,
+        isLoading: true,
+      }))
+      .addCase(deleteBike.fulfilled, (state, action) => {
+        const updatedBikes = state.message.bikes.filter(
+          (bike) => bike.id !== action.payload,
+        );
+        return {
+          ...state,
+          isLoading: false,
+          message: {
+            ...state.message,
+            bikes: updatedBikes,
+          },
+        };
+      })
+      .addCase(deleteBike.rejected, (state, action) => ({
+        ...state,
+        isLoading: false,
+        error: action.payload.message
+          ? action.payload.message
+          : 'An error occurred',
+      }));
+  },
+});
+
+export default bikeSlice.reducer;
