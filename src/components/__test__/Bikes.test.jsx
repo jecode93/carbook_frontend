@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
-import Bikes from '../Cars';
+import Cars from '../Cars';
 
 const mockStore = configureStore([]);
 
@@ -25,7 +25,7 @@ describe('Cars Component', () => {
     component = render(
       <Provider store={store}>
         <MemoryRouter>
-          <Bikes />
+          <Cars />
         </MemoryRouter>
       </Provider>,
     );
