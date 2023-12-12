@@ -34,7 +34,11 @@
 ### Kanban Board <a name="kanban-board"></a>
 
 - [Link to the kanban board](https://github.com/users/2004-okari/projects/2)
-- [Link to the screenshot of the initial state of the kanban board](https://private-user-images.githubusercontent.com/116469172/286595688-4213fe66-f75e-46af-9073-06930cb1e33c.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTEiLCJleHAiOjE3MDIzODY0OTAsIm5iZiI6MTcwMjM4NjE5MCwicGF0aCI6Ii8xMTY0NjkxNzIvMjg2NTk1Njg4LTQyMTNmZTY2LWY3NWUtNDZhZi05MDczLTA2OTMwY2IxZTMzYy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBSVdOSllBWDRDU1ZFSDUzQSUyRjIwMjMxMjEyJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDIzMTIxMlQxMzAzMTBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1hY2VmZmVmYWYzNmI0YTE1OGE3ZDdkMjgxZTFhYmU1YTNhMWRlZjJmNTE5Nzk1YjkzYjA5MmY1ODEzZGI1MWNiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.JkYaW1V1Vj5T2XE5WvDNIdtmiJzAQhgko_Qg_v33FwQ)
+
+### Initial state of the kanban board
+
+<img width="1003" alt="286595688-4213fe66-f75e-46af-9073-06930cb1e33c" src="https://github.com/2004-okari/FC_FRONTEND/assets/45808742/8814f628-72c1-4e10-a9e3-2b608da93caf">
+
 
 
 ### Number of team members
