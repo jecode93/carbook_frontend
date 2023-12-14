@@ -79,7 +79,7 @@ const Cars = () => {
     );
   }
 
-  return <div className="w-full font-bold flex items-center justify-center text-2xl">No Bikes to show</div>;
+  return <div className="w-full font-bold flex items-center justify-center text-2xl">No Cars to show</div>;
 };
 
 export default Cars;

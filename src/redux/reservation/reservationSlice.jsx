@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-const BASE_URL = 'http://127.0.0.1:3000/';
+const BASE_URL = 'https://final-capstone-backend-tgot.onrender.com/';
 
 export const displayReservation = createAsyncThunk(
   'reservation/displayReservation',
