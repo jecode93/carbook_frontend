@@ -47,7 +47,7 @@ const Login = () => {
           Login
         </button>
         <p>
-          <span className="text-gray-400">New to MotorBook? </span>
+          <span className="text-gray-400">New to CarBook? </span>
           <Link to="/signup" className="hover:underline">Sign up now</Link>
         </p>
       </form>
