@@ -56,7 +56,7 @@
 
 
 ### Back-end Repository
-- Here is the link of the [Back-End](https://github.com/2004-okari/FC_BACKEND)
+- Here is the link of the [Back-End](https://github.com/jecode93/carbook_backend.git)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
