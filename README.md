@@ -98,7 +98,7 @@ Clone this repository using the GitHub link provided below.
 In the terminal, go to your file directory and run this command.
 
 ```
-$ git clone https://github.com/2004-okari/FC_FRONTEND.git
+$ https://github.com/jecode93/carbook_frontend.git
 ```
 
 
